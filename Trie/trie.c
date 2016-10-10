@@ -166,6 +166,7 @@ int main(){
 
 	trie_destroy(myfirst);
 	fclose(fp);
+	
 	return 0;
 }
 
