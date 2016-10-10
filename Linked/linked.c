@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include "linked.h"
 
-struct linked_node{
-	char* word;
-	int frequency;
-	linked_t next;
-};
+
 
 linked_t linked_create(){
 	linked_t newlinked = malloc(sizeof(struct linked_node));
