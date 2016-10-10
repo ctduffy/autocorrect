@@ -77,6 +77,7 @@ void linked_print(linked_t list){
 	}
 }
 
+/*
 int main(){
 	linked_t testcase = linked_create();
 	testcase = linked_add(testcase, 10, "ten");
@@ -88,4 +89,4 @@ int main(){
 	
 	int hello = linked_destroy(testcase);
 	return 0;
-}
+}*/

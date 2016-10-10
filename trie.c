@@ -137,7 +137,7 @@ int trie_contains(trie_t trie, char* word){ //checks if given trie contains give
 		}
 	}
 }
-
+/*
 int main(){
 
 	trie_t myfirst = trie_init();
@@ -178,4 +178,4 @@ int main(){
 
 	return 0;
 }
-
+*/
