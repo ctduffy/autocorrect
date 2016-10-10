@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "linked.h"
 
 struct linked_node{
 	char* word;
