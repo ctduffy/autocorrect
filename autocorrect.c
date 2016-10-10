@@ -68,4 +68,6 @@ int main(){
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
 
+	return 0;
+
 }

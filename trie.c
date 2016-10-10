@@ -40,7 +40,7 @@ int trie_destroy(trie_t trie){ //tail recursion destroy function: first finds al
 		}
 	}
 	free(trie);
-	return 1;
+	return 0;
 }
 
 trie_t trie_next(int numb) {//takes in letter, allocates memory for trie with letter = letter taken in and empty tries for the nextArr list
@@ -96,7 +96,7 @@ int trie_insert(trie_t trie, char* word){ //recursively inserts a word and a whe
 		char* left = &word[1];
 		trie_insert(trie->nextArr[curr], left);
 	}
-	return 1;
+	return 0;
 }
 
 int trie_contains(trie_t trie, char* word){ //checks if given trie contains given word, checks with recursion
