@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "trie.h"
-#include "linked.h"
+#include "../Trie/trie.h"
+#include "../Linked/linked.h"
 #include "autocorrect.h"
 
 struct curr_data{
@@ -55,7 +55,7 @@ int main(){
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
-	
+
 
 	free(data);
 	int a = linked_destroy(linked);
