@@ -47,8 +47,8 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	else{
 		if(trie!=NULL){
-			printf("nxt is %c\n", curr[0]);
-			return autocomplete(list, trie, curr[1], data);
+			printf("nxt is %s\n", &curr[1]);
+			return autocomplete(list, trie, &curr[1], data);
 		}
 	}
 }
