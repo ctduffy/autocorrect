@@ -4,7 +4,7 @@
 #include "linked.h"
 
  
-typedef struct linked_node{
+struct linked_node{
 	char* word;
 	int frequency;
 	linked_t next;
