@@ -11,29 +11,7 @@ struct curr_data{
 	trie_t start;
 };
 
-int main(){
-	printf("1here?\n");
 
-	linked_t linked = linked_create();
-	trie_t trie = trie_init();
-
-	data_t data = malloc(sizeof(struct curr_data));
-	data->word = "aardwo";
-	data->start = trie;
-
-	printf("here?\n");
-
-	linked_t result = autocomplete(linked, trie, "aardwo", data);
-
-
-
-	free(data);
-	int a = linked_destroy(linked);
-	int b = trie_destroy(trie);
-
-	return 0;
-
-}
 
 linked_t trie_search(linked_t list, trie_t trie, char* word){
 	if(trie!=NULL){
@@ -74,6 +52,30 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 }
 
 linked_t autocorrect(linked_t list, trie_t trie, char* curr, int maxld){
+
+}
+
+int main(){
+	printf("1here?\n");
+
+	linked_t linked = linked_create();
+	trie_t trie = trie_init();
+
+	data_t data = malloc(sizeof(struct curr_data));
+	data->word = "aardwo";
+	data->start = trie;
+
+	printf("here?\n");
+
+	linked_t result = autocomplete(linked, trie, "aardwo", data);
+
+
+
+	free(data);
+	int a = linked_destroy(linked);
+	int b = trie_destroy(trie);
+
+	return 0;
 
 }
 
