@@ -53,11 +53,13 @@ int main(){
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 
+	char* wor = "aardwo";
+
 	data_t data = malloc(sizeof(struct curr_data));
-	data->word = "aardwo";
+	data->word = wor;
 	data->start = trie;
 
-	linked_t result = autocomplete(linked, trie, "aardwo", data);
+	linked_t result = autocomplete(linked, trie, wor, data);
 
 
 
