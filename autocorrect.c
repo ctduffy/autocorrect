@@ -33,7 +33,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	printf("DID IT MAKE IT HERE");
-	if(curr[1] == NULL){
+	if((int)strlen(curr) = 1){
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
@@ -52,13 +52,13 @@ linked_t autocorrect(linked_t list, trie_t trie, char* curr, int maxld){
 
 int main(){
 
+	printf("1here?");
+
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 
-	char* wor = "aardwo";
-
 	data_t data = malloc(sizeof(struct curr_data));
-	data->word = wor;
+	data->word = "aardwo";
 	data->start = trie;
 
 	printf("here?");
