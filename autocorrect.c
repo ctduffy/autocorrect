@@ -12,7 +12,7 @@ struct curr_data{
 };
 
 int main(){
-	printf("1here?");
+	printf("1here?\n");
 
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
@@ -21,7 +21,7 @@ int main(){
 	data->word = "aardwo";
 	data->start = trie;
 
-	printf("here?");
+	printf("here?\n");
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
@@ -56,7 +56,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
-	printf("DID IT MAKE IT HERE");
+	printf("DID IT MAKE IT HERE\n");
 	if(curr == NULL){
 
 	}
