@@ -63,9 +63,11 @@ int main(){
 	linked_t testcase = linked_create();
 	testcase = linked_add(testcase, 10, "ten");
 	testcase = linked_add(testcase, 2, "two");
+	testcase = linked_add(testcase, 100, "one hundred");
 	
 	printf("this word is: %s, its freq is: %d\n", testcase->word, testcase->frequency);
 	printf("this word is: %s, its freq is: %d\n", testcase->next->word, testcase->next->frequency);
+	printf("this word is: %s, its freq is: %d\n", testcase->next->next->word, testcase->next->next->frequency);
 
 	int hello = linked_destroy(testcase);
 	return 0;
