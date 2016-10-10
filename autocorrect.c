@@ -38,7 +38,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	if(curr == NULL){
 
 	}
-	else if(&curr[1] == NULL){
+	else if(&curr[0] == "o"){
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
