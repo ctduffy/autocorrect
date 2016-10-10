@@ -35,7 +35,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	else{
 		if(trie!=NULL){
-			return autocomplete(list, trie, curr[1], data->word);
+			return autocomplete(list, trie, curr[1], data);
 		}
 	}
 }
