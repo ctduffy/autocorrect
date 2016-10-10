@@ -3,7 +3,7 @@
 
 typedef struct trie_node* trie_t; 
 
-char get_letter(trie_t this){;
+char get_letter(trie_t this);
 int get_trie_frequency(trie_t this);
 trie_t get_next_trie(trie_t this, int place);
 
