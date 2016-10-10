@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "../Trie/trie.h"
-#include "../Linked/linked.h"
+#include "trie.h"
+#include "linked.h"
 #include "autocorrect.h"
 
 struct curr_data{
