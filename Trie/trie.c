@@ -129,6 +129,11 @@ int trie_contains(trie_t trie, char* word){ //checks if given trie contains give
 
 int main(){
 
+	malloc(sizeof(struct trie_node));
+
+	return 0;
+
+
 	trie_t myfirst = trie_init();
 
 	FILE* fp;
@@ -166,10 +171,5 @@ int main(){
 
 	trie_destroy(myfirst);
 	fclose(fp);
-
-	malloc(sizeof(struct trie_node));
-
-	return 0;
-
 }
 
