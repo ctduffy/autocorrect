@@ -61,6 +61,8 @@ int main(){
 	data->word = wor;
 	data->start = trie;
 
+	printf("here?");
+
 	linked_t result = autocomplete(linked, trie, wor, data);
 
 
