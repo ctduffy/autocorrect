@@ -6,7 +6,7 @@
 struct trie_node{
 	char letter;
 	int frequency;
-	trie_t nextArr[26]; 
+	trie_t nextArr[26];
 };
 
 trie_t trie_init() { //takes in nothing, allocates memory for empty trie with letter = NULL and empty tries for the nextArr list
@@ -129,11 +129,6 @@ int trie_contains(trie_t trie, char* word){ //checks if given trie contains give
 
 int main(){
 
-	malloc(sizeof(struct trie_node));
-
-	return 0;
-
-
 	trie_t myfirst = trie_init();
 
 	FILE* fp;
@@ -171,5 +166,6 @@ int main(){
 
 	trie_destroy(myfirst);
 	fclose(fp);
+	return 0;
 }
 
