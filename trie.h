@@ -3,12 +3,10 @@
 
 typedef struct trie_node* trie_t; 
 
+char get_letter(trie_t this){;
+int get_trie_frequency(trie_t this);
+trie_t get_next_trie(trie_t this, int place);
 
-struct trie_node{
-	char letter;
-	int frequency;
-	trie_t nextArr[26]; 
-};
 trie_t trie_init();
 int trie_destroy(trie_t trie);
 

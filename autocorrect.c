@@ -14,7 +14,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	if(trie!=NULL){
 		char* wordnext = word;
 		while(wordnext[0] != NULL){
-			trie = trie->nextArr[(int) word[0] - 97];
+			trie = get_next_trie(trie, (int) word[0] - 97);
 		}
 		int i;
 		int len = strlen(word);
@@ -24,16 +24,16 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 			newword[len + 1] = "\0";
 			return trie_search(list, trie, newword);
 		}
-		if(trie->frequency > 0){
-			return linked_add(list, trie->frequency, word);
+		if(get_trie_frequency(trie) > 0){
+			return linked_add(list, get_trie_frequency(trie), word);
 		}
 	}
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	if(curr[1]==NULL){
-		if(trie->nextArr[(int) curr[0] - 97]->frequency != 0 && trie->nextArr[(int) curr[0] - 97]->frequency != NULL){
-			return linked_add(list, trie->nextArr[(int) curr[0] - 97]->frequency, data->word);
+		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
+			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
 		return trie_search(list, trie, data->word);
 	}
