@@ -134,8 +134,6 @@ int main(){
 	FILE* fp;
 	char line[255];
 
-
-
 	fp = fopen("wordsfirst.txt", "r");
 
 	while(fgets(line, sizeof(line), fp) != NULL){ //takes in file line by line, loading word into variable line, until it reaches a new line
@@ -166,7 +164,7 @@ int main(){
 
 	trie_destroy(myfirst);
 	fclose(fp);
-	
+
 	return 0;
 }
 
