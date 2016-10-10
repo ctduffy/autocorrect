@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include "trie.h"
 
-
-
 trie_t trie_init() { //takes in nothing, allocates memory for empty trie with letter = NULL and empty tries for the nextArr list
 	trie_t thistrie = malloc(sizeof(struct trie_node));
 	int i;

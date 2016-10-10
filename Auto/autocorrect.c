@@ -24,16 +24,16 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 			newword[len + 1] = "\0";
 			return trie_search(list, trie, newword);
 		}
-		if(trie->freq > 0){
-			return linked_add(list, trie->freq, word);
+		if(trie->frequency > 0){
+			return linked_add(list, trie->frequency, word);
 		}
 	}
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	if(curr[1]==NULL){
-		if(trie->nextArr[(int) curr[0] - 97]->freq != 0 && trie->nextArr[(int) curr[0] - 97]->freq != NULL){
-			return linked_add(list, trie->nextArr[(int) curr[0] - 97]->freq, data->word);
+		if(trie->nextArr[(int) curr[0] - 97]->frequency != 0 && trie->nextArr[(int) curr[0] - 97]->frequency != NULL){
+			return linked_add(list, trie->nextArr[(int) curr[0] - 97]->frequency, data->word);
 		}
 		return trie_search(list, trie, data->word);
 	}
