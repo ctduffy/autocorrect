@@ -41,7 +41,7 @@ linked_t linked_add(linked_t list, int freq, char* word){
 			}
 			else{
 				cont = 0;
-				linked_t new = malloc(sizeof(stuct linked_node));
+				linked_t new = malloc(sizeof(struct linked_node));
 				new->word = word;
 				new->frequency = freq;
 				new->next = NULL;
