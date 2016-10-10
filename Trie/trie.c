@@ -167,6 +167,8 @@ int main(){
 	trie_destroy(myfirst);
 	fclose(fp);
 
+	malloc(sizeof(struct trie_node));
+
 	return 0;
 
 }
