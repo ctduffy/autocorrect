@@ -61,7 +61,7 @@ linked_t linked_add(linked_t list, int freq, char* word){
 
 int main(){
 	linked_t testcase = linked_create();
-	testcase = linked_add(testcase, 1, "one");
+	testcase = linked_add(testcase, 10, "ten");
 	testcase = linked_add(testcase, 2, "two");
 	
 	printf("this word is: %s, its freq is: %d\n", testcase->word, testcase->frequency);
