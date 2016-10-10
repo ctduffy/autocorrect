@@ -1,14 +1,14 @@
 #ifndef _TRIE_LIST_T
 #define _TRIE_LIST_T
 
+typedef struct trie_node* trie_t; 
+
+
 struct trie_node{
 	char letter;
 	int frequency;
 	trie_t nextArr[26]; 
 };
-
-typedef struct trie_node* trie_t; 
-
 trie_t trie_init();
 int trie_destroy(trie_t trie);
 
