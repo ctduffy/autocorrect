@@ -35,7 +35,6 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	printf("DID IT MAKE IT HERE\n");
-	printf("%s\n", curr);
 	if(curr == NULL){
 
 	}
