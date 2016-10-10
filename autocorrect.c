@@ -22,7 +22,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		char* newword = word;
 		for(i = 0; i < 26; i++){
 			newword[len] = (char) i + 97;
-			newword[len + 1] = "\0";
+			newword[len + 1] = '\0';
 			return trie_search(list, trie, newword);
 		}
 		if(get_trie_frequency(trie) > 0){
@@ -33,7 +33,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	printf("DID IT MAKE IT HERE");
-	if((int)strlen(curr) = 1){
+	if((int)strlen(curr) == 1){
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
