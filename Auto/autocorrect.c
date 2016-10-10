@@ -18,7 +18,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		}
 		int i;
 		for(i = 0; i < 26; i++){
-			return trie_search(list, trie, strcat(word, (char) 1+97));
+			return trie_search(list, trie, strcat(&word, (char) 1+97));
 		}
 		if(trie->freq > 0){
 			return linked_add(list, trie->freq, word);
