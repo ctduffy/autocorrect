@@ -63,7 +63,7 @@ int main(){
 
 	printf("here?");
 
-	linked_t result = autocomplete(linked, trie, wor, data);
+	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
 
 
