@@ -46,6 +46,7 @@ linked_t linked_add(linked_t list, int freq, char* word){
 				new->frequency = freq;
 				new->next = NULL;
 				this->next = new;
+				return this;
 			}
 		}
 		if(cont = 1){
@@ -53,8 +54,8 @@ linked_t linked_add(linked_t list, int freq, char* word){
 			now->word = word;
 			now->frequency = freq;
 			now->next = this;
+			return now;
 		}
-		return this;
 	}
 }
 
