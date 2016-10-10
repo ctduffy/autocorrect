@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include "trie.h"
 #include "linked.h"
-#include "autocorrect.h"
+
+typedef struct curr_data* data_t;
 
 struct curr_data{
 	char* word;
