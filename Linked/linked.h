@@ -8,4 +8,6 @@ int linked_destroy(linked_t curr);
 
 linked_t linked_add(linked_t list, int freq, char* word);
 
+void linked_print(linked_t list);
+
 #endif // __LINKED_LIST_T__
