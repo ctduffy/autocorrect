@@ -43,7 +43,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	//int len = (int) strlen(word);
 	//char* newword = word;
 	for(i = 0; i<26; i++){
-		char n = (char) i + 97
+		char n = ((char) i + 97);
 		char* newword = appendchar(word, strlen(word), n);
 		return trie_search(list, trie, newword);
 	}
