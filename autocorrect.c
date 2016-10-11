@@ -16,7 +16,7 @@ struct curr_data{
 linked_t trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
-	while(word[0]!= NULL){
+	while(nowword[0]!= NULL){
 		now = get_next_trie(now, (int) nowword[0] - 97);
 		nowword = &nowword[1];
 	}
