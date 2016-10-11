@@ -18,7 +18,7 @@ struct curr_data{
 };
 
 char* appendchar(char* str, char c){
-    int len = strlen(szString);
+    int len = strlen(str);
 
     char nex[len+1];
     int i;
@@ -26,7 +26,7 @@ char* appendchar(char* str, char c){
     	nex[i] = str[i];
     } 
     nex[len] = c;
-    return nex;
+    return &nex;
 }
 
 
@@ -45,7 +45,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	//char* newword = word;
 	for(i = 0; i<26; i++){
 		char n = ((char) i + 97);
-		char* newword = appendchar(word, strlen(word) + 2, n);
+		char* newword = appendchar(word, n);
 		return trie_search(list, trie, newword);
 	}
 
