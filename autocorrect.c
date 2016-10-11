@@ -17,19 +17,6 @@ struct curr_data{
 	trie_t start;
 };
 
-char* appendchar(char* str, char c){
-    int len = strlen(str);
-
-    char nex[len+1];
-    int i;
-    for(i = 0; i<len; i++){
-    	nex[i] = str[i];
-    } 
-    nex[len] = c;
-    return &nex;
-}
-
-
 linked_t trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
@@ -81,8 +68,8 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
-	printf("DID IT MAKE IT HERE\n");
-	printf("curr is %c\n", curr[0]);
+	//printf("DID IT MAKE IT HERE\n");
+	//printf("curr is %c\n", curr[0]);
 	if(curr == NULL){
 
 	}
