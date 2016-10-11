@@ -14,6 +14,23 @@ struct curr_data{
 
 
 linked_t trie_search(linked_t list, trie_t trie, char* word){
+	trie_t now = trie;
+	char* nowword = word;
+	while(word[0]!= NULL){
+		now = get_next_trie(now, (int) now[0] - 97));
+		nowword = &nowword[1];
+	}
+	if(get_trie_frequency(now) > 0){
+		return linked_add(word, get_trie_frequency(now));
+	}
+	int i;
+	for(i = 0; i<26; i++){
+		newword[len] = ((char) i + 97);
+		newword[len + 1] = '\0';
+		return trie_search(list, trie, newword);
+	}
+
+	/*
 	if(trie!=NULL){
 		char* wordnext = word;
 		while(wordnext[0] != NULL){
@@ -31,6 +48,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 			return linked_add(list, get_trie_frequency(trie), word);
 		}
 	}
+	*/
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
