@@ -4,6 +4,12 @@
 #include "trie.h"
 #include "linked.h"
 
+
+/////run with:   gcc -g -std=c99 linked.c trie.c autocorrect.c -o rt
+
+
+
+
 typedef struct curr_data* data_t;
 
 struct curr_data{
@@ -23,12 +29,12 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	if(get_trie_frequency(now) > 0){
 		return linked_add(list, get_trie_frequency(now), word);
 	}
-	int i;
-	int len = (int)strlen(word);
-	char* newword = word;
+	//int i;
+	//int len = (int) strlen(word);
+	//char* newword = word;
 	for(i = 0; i<26; i++){
-		newword[len] = ((char) i + 97);
-		newword[len + 1] = '\0';
+		char th = (char) i + 97;
+		newword = strcat(word, &th);
 		return trie_search(list, trie, newword);
 	}
 
