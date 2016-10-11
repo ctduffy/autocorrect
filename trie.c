@@ -137,6 +137,9 @@ int trie_contains(trie_t trie, char* word){ //checks if given trie contains give
 		}
 	}
 }
+
+
+
 /*
 int main(){
 
