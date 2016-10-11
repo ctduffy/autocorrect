@@ -17,13 +17,15 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
 	while(word[0]!= NULL){
-		now = get_next_trie(now, (int) now[0] - 97));
+		now = get_next_trie(now, (int) now[0] - 97);
 		nowword = &nowword[1];
 	}
 	if(get_trie_frequency(now) > 0){
-		return linked_add(word, get_trie_frequency(now));
+		return linked_add(list, get_trie_frequency(now), word);
 	}
 	int i;
+	int len = strlen(word);
+	char* newword = word;
 	for(i = 0; i<26; i++){
 		newword[len] = ((char) i + 97);
 		newword[len + 1] = '\0';
