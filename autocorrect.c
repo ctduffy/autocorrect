@@ -17,15 +17,16 @@ struct curr_data{
 	trie_t start;
 };
 
-char* appendchar(char *szString, size_t strsize, char c){
-    size_t len = strlen(szString);
-    if((len+1) < strsize)
-    {
-        szString[len+1] = c;
-        szString[len+2] = '\0';
-        return szString;
-    }
-    return NULL;
+char* appendchar(char* str, char c){
+    int len = strlen(szString);
+
+    char nex[len+1];
+    int i;
+    for(i = 0; i<len; i++){
+    	nex[i] = str[i];
+    } 
+    nex[len] = c;
+    return nex;
 }
 
 
