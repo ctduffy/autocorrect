@@ -19,7 +19,7 @@ struct curr_data{
 
 char* appendchar(char *szString, size_t strsize, char c){
     size_t len = strlen(szString);
-    if((len+1) <= strsize)
+    if((len+1) < strsize)
     {
         szString[len++] = c;
         szString[len] = '\0';
@@ -44,7 +44,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	//char* newword = word;
 	for(i = 0; i<26; i++){
 		char n = ((char) i + 97);
-		char* newword = appendchar(word, strlen(word) + 1, n);
+		char* newword = appendchar(word, strlen(word) + 2, n);
 		return trie_search(list, trie, newword);
 	}
 
