@@ -11,13 +11,28 @@ struct trie_node{
 };
 
 char get_letter(trie_t this){
-	return this->letter;
+	if(this->letter != NULL){
+		return this->letter;
+	}
+	else{
+		return NULL;
+	}
 }
 int get_trie_frequency(trie_t this){
-	return this->frequency;
+	if(this->letter != NULL){
+		return this->frequency;
+	}
+	else{
+		return NULL;
+	}
 }
 trie_t get_next_trie(trie_t this, int place){
-	return this->nextArr[place];
+	if(this->letter != NULL){
+		return this->nextArr[place];
+	}
+	else{
+		return NULL;
+	}
 }
 
 trie_t trie_init() { //takes in nothing, allocates memory for empty trie with letter = NULL and empty tries for the nextArr list
