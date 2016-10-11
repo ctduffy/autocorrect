@@ -45,26 +45,6 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 			return trie_search(list, trie, nex);
 	    }
 	}
-
-	/*
-	if(trie!=NULL){
-		char* wordnext = word;
-		while(wordnext[0] != NULL){
-			trie = get_next_trie(trie, (int) word[0] - 97);
-		}
-		int i;
-		int len = strlen(word);
-		char* newword = word;
-		for(i = 0; i < 26; i++){
-			newword[len] = (char) i + 97;
-			newword[len + 1] = '\0';
-			return trie_search(list, trie, newword);
-		}
-		if(get_trie_frequency(trie) > 0){
-			return linked_add(list, get_trie_frequency(trie), word);
-		}
-	}
-	*/
 }
 
 linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
@@ -136,7 +116,7 @@ int main(){
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
-
+	linked_print(result);
 
 	free(data);
 	int a = linked_destroy(linked);
