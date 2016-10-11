@@ -24,7 +24,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		return linked_add(list, get_trie_frequency(now), word);
 	}
 	int i;
-	int len = strlen(word);
+	int len = (int)strlen(word);
 	char* newword = word;
 	for(i = 0; i<26; i++){
 		newword[len] = ((char) i + 97);
