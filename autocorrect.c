@@ -34,7 +34,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	//char* newword = word;
 	for(i = 0; i<26; i++){
 		char* th = ((char) i + 97);
-		char* newword = strncat(word, &th, 1);
+		char* newword = strncat(word, th, 1);
 		return trie_search(list, trie, newword);
 	}
 
