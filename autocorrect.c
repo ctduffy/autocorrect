@@ -21,8 +21,8 @@ char* appendchar(char *szString, size_t strsize, char c){
     size_t len = strlen(szString);
     if((len+1) < strsize)
     {
-        szString[len++] = c;
-        szString[len] = '\0';
+        szString[len+1] = c;
+        szString[len+2] = '\0';
         return szString;
     }
     return NULL;
