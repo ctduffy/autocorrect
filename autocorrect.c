@@ -56,7 +56,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	    nex[len] = n;
 
 		//char* newword = appendchar(word, n);
-		return trie_search(list, trie, newword);
+		return trie_search(list, trie, nex);
 	}
 
 	/*
