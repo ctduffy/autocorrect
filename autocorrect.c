@@ -19,7 +19,7 @@ struct curr_data{
 
 char* appendchar(char *szString, size_t strsize, char c){
     size_t len = strlen(szString);
-    if((len+1) < strsize)
+    if((len+1) <= strsize)
     {
         szString[len++] = c;
         szString[len] = '\0';
