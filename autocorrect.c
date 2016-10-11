@@ -91,13 +91,13 @@ int trie_starter(trie_t trie, char* filepath){
 int main(){
 	printf("1here?\n");
 
-
-
 	linked_t linked = linked_create();
+	printf("here\n");
 	trie_t trie = trie_init();
 
+	printf("here2\n");
 	int j = trie_starter(trie, "myfirst");
-
+	printf("here3\n");
 	printf("%d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
