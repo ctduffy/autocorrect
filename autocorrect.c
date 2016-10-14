@@ -21,8 +21,14 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
 	while(nowword[0]!= NULL){
-		now = get_next_trie(now, (int) nowword[0] - 97);
-		nowword = &nowword[1];
+		if(get_letter(trie) == NULL){
+			now = et_next_trie(now, (int) nowword[0] - 97);
+		}
+		else{
+			now = get_next_trie(now, (int) nowword[1] - 97);
+			nowword = &nowword[1];
+		}
+		
 	}
 	if(get_trie_frequency(now) > 0){
 		return linked_add(list, get_trie_frequency(now), word);
