@@ -99,6 +99,11 @@ int trie_starter(trie_t trie, char* filepath){
 		//printf("%s\n", line);
 		trie_insert(trie, line);
 	}
+
+	int cont = trie_contains(trie, "aardwolf");
+
+	printf("putin? %d\n", cont);
+
 	fclose(fp);
 	return 0;
 }
