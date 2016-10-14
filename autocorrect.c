@@ -22,7 +22,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	char* nowword = word;
 	while(nowword[0]!= NULL){
 		if(get_letter(trie) == NULL){
-			now = et_next_trie(now, (int) nowword[0] - 97);
+			now = get_next_trie(now, (int) nowword[0] - 97);
 		}
 		else{
 			now = get_next_trie(now, (int) nowword[1] - 97);
