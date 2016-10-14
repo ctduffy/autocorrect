@@ -60,7 +60,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	else{
 		if(trie!=NULL){
-			if(trie->letter == NULL){
+			if(getletter(trie) == NULL){
 				return autocomplete(list, get_next_trie(trie, (int) curr[0] - 97), &curr[1], data);
 			}
 		}
