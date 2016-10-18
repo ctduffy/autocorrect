@@ -24,8 +24,11 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		if(get_letter(now) == NULL){
 			now = get_next_trie(now, (int) nowword[0] - 97);
 		}
-		else{
+		else if(get_next_trie(now, (int) nowword[1] - 97) != NULL){
 			now = get_next_trie(now, (int) nowword[1] - 97);
+			nowword = &nowword[1];
+		}
+		else{
 			nowword = &nowword[1];
 		}
 		
