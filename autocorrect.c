@@ -75,11 +75,11 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 		if(trie!=NULL){
 			printf("trie isnt null\n");
 			if(get_letter(trie) == NULL){
-				print("first letter");
+				print("first letter\n");
 				return autocomplete(list, get_next_trie(trie, (int) curr[0] - 97), &curr[0], data);
 			}
 			else{
-				print("all others");
+				print("all others\n");
 				return autocomplete(list, get_next_trie(trie, (int) curr[1] - 97), &curr[1], data);
 			}
 		}
