@@ -71,6 +71,7 @@ linked_t linked_add(linked_t list, int freq, char* word){
 }
 
 void linked_print(linked_t list){
+	printf("made it here");
 	if(list != NULL && list->word != NULL){
 		printf("this word is: %s, its freq is: %d\n", list->word, list->frequency);
 		linked_print(list->next);
