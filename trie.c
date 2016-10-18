@@ -11,7 +11,10 @@ struct trie_node{
 };
 
 char get_letter(trie_t this){
-	if(this->letter != NULL){
+	if(this != NULL){
+		return NULL;
+	}
+	else if(this->letter != NULL){
 		return this->letter;
 	}
 	else{
@@ -19,7 +22,10 @@ char get_letter(trie_t this){
 	}
 }
 int get_trie_frequency(trie_t this){
-	if(this->letter != NULL){
+	if(this != NULL){
+		return NULL;
+	}
+	else if(this->letter != NULL){
 		return this->frequency;
 	}
 	else{
@@ -27,7 +33,10 @@ int get_trie_frequency(trie_t this){
 	}
 }
 trie_t get_next_trie(trie_t this, int place){
-	if(this->nextArr[place] != NULL){
+	if(this != NULL){
+		return NULL;
+	}
+	else if(this->nextArr[place] != NULL){
 		return this->nextArr[place];
 	}
 	else{
