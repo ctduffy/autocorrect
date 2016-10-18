@@ -60,6 +60,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	//printf("DID IT MAKE IT HERE\n");
 	//printf("curr is %c\n", curr[0]);
 	if(curr == NULL){
+		printf("curr is null?\n");
 	}
 	else if(curr[1] == NULL){
 		printf("next letter is not null\n");
@@ -72,12 +73,16 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	else{
 		if(trie!=NULL){
+			printf("trie isnt null\n");
 			if(get_letter(trie) == NULL){
 				return autocomplete(list, get_next_trie(trie, (int) curr[0] - 97), &curr[0], data);
 			}
 			else{
 				return autocomplete(list, get_next_trie(trie, (int) curr[1] - 97), &curr[1], data);
 			}
+		}
+		else{
+			printf("trie is null?\n");
 		}
 	}
 }
