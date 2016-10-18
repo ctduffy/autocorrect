@@ -33,9 +33,6 @@ int get_trie_frequency(trie_t this){
 	}
 }
 trie_t get_next_trie(trie_t this, int place){
-	if(this != NULL){
-		return NULL;
-	}
 	else if(this->nextArr[place] != NULL){
 		return this->nextArr[place];
 	}
