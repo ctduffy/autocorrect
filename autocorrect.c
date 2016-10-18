@@ -132,7 +132,7 @@ int main(){
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 	int j = trie_starter(trie, "wordsfirst.txt");
-	printf("%d\n", j);
+	printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = "aardwo";
