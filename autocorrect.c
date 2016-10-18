@@ -62,7 +62,10 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	if(curr == NULL){
 	}
 	else if(curr[1] == NULL){
+		printf("next letter is not null\n");
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
+			printf("this freq isnt 0\n");
+			printf("this next trie is not null\n");
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
 		return trie_search(list, data->start, data->word);
@@ -134,7 +137,7 @@ int main(){
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
-	
+
 
 	linked_print(result);
 
