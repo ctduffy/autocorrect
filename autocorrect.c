@@ -134,6 +134,8 @@ int main(){
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
 
+	
+
 	linked_print(result);
 
 	free(data);
