@@ -63,7 +63,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 		printf("curr is null?\n");
 	}
 	else if(curr[1] == NULL){
-		printf("next letter is not null\n");
+		printf("next letter is null\n");
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			printf("this freq isnt 0\n");
 			printf("this next trie is not null\n");
@@ -143,8 +143,6 @@ int main(){
 	printf("here?\n");
 
 	linked_t result = autocomplete(linked, trie, "aardwo", data);
-
-
 
 	linked_print(result);
 
