@@ -45,9 +45,9 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		int len = strlen(word);
 
 	    char nex[len+1];
-	    int i;
-	    for(i = 0; i<len; i++){
-	    	nex[i] = word[i];
+	    int j;
+	    for(j = 0; j<len; j++){
+	    	nex[j] = word[j];
 	    } 
 	    nex[len] = n;
 	    if(get_letter != NULL){
@@ -76,7 +76,8 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 				}
 			}
 			*/
-		}///////CONTINUE WORKING AROUND HERE.
+		}///////CONTINUE WORKING AROUND HERE.n
+
 		return trie_search(list, data->start, data->word);
 	}
 	else{
