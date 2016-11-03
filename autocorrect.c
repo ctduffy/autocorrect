@@ -50,7 +50,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	    	nex[j] = word[j];
 	    } 
 	    nex[len] = n;
-	    if(get_letter != NULL){
+	    if(get_letter(get_next_trie(now, i)) != NULL){
 			return trie_search(list, trie, nex);
 	    }
 	}
