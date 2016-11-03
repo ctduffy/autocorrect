@@ -152,7 +152,7 @@ int main(){
 	printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
-	data->word = "aardwo";
+	data->word = "aard";
 	data->start = trie;
 
 	printf("here?\n");
