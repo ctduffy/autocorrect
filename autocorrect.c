@@ -34,7 +34,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		
 	}
 	if(get_trie_frequency(now) > 0){
-		printf("found a word!!");
+		printf("found a word!!, adding: %s \n", nowword);
 		return linked_add(list, get_trie_frequency(now), word);
 	}
 	int i;
@@ -51,7 +51,9 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	    	nex[j] = word[j];
 	    } 
 	    nex[len] = n;
+	    printf("trying %s\n", nex);
 	    if(get_letter(get_next_trie(now, i)) != NULL){
+	    	printf("This works! continuing on this path\n");
 			return trie_search(list, trie, nex);
 	    }
 	}
