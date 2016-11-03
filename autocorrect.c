@@ -52,6 +52,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	    } 
 	    nex[len] = n;
 	    printf("trying %s\n", nex);
+	    printf("adding %c\n", n);
 	    if(get_letter(get_next_trie(now, i)) != NULL){
 	    	printf("This works! continuing on this path\n");
 			return trie_search(list, trie, nex);
