@@ -34,6 +34,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		
 	}
 	if(get_trie_frequency(now) > 0){
+		printf("found a word!!");
 		return linked_add(list, get_trie_frequency(now), word);
 	}
 	int i;
