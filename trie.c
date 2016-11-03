@@ -17,9 +17,6 @@ char get_letter(trie_t this){
 	else if(this->letter == NULL){
 		return NULL;
 	}
-	else if(this->letter == '/000'){
-		return NULL;
-	}
 	else if(this->letter != NULL){
 		return this->letter;
 	}
