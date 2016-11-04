@@ -59,7 +59,8 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	if(get_trie_frequency(now) > 0){
 		printf("found a word!!, adding: %s\n", word);
-		linked_add(list, get_trie_frequency(now), word);
+		char* thisone = word;
+		linked_add(list, get_trie_frequency(now), thisone);
 	}
 	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
 	return 0;
