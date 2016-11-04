@@ -60,7 +60,7 @@ int linked_add(linked_t list, int freq, char* word){
 		}
 	}
 	else{
-		return linked_add(list->next, freq, word)
+		return linked_add(list->next, freq, word);
 	}
 }
 
