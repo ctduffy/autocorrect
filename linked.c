@@ -52,7 +52,7 @@ int linked_add(linked_t list, int freq, char* word){
 		int next = list->next->frequency;
 		linked_t this = list->next;
 
-		while(!(next < freq)){
+		while(next < freq){
 			if(this->next != NULL){
 				this = this->next;
 			}
