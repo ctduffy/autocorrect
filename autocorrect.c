@@ -169,8 +169,8 @@ int main(){ //To have this function take command line arguments: do: int main(in
 
 	linked_t linked = linked_create();
 
-	linked = linked_add(linked, 1, first);
-	linked = linked_add(linked, 1, second);
+	linked_add(linked, 1, first);
+	linked_add(linked, 1, second);
 
 	linked_print(linked);
 
