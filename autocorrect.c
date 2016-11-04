@@ -17,7 +17,7 @@ struct curr_data{
 	trie_t start;
 };
 
-void wordmaker(char* word, trie_t now){
+void wordmaker(char* word, trie_t now, trie_t trie){
 	int i;
 	//char* nexlist[26];
 	for(i = 0; i<26; i++){
@@ -61,7 +61,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		printf("found a word!!, adding: %s\n", word);
 		linked_add(list, get_trie_frequency(now), word);
 	}
-	wordmaker(word, now);
+	wordmaker(word, now, trie);
 	return list;
 }
 
