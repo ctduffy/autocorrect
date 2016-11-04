@@ -160,9 +160,13 @@ int main(){
 
 	printf("here?\n");
 
-	linked_t result = autocomplete(linked, trie, "aardwo", data);
+	//linked_t result = autocomplete(linked, trie, "aardwo", data);
 
-	linked_print(result);
+	//linked_print(result);
+
+	linked_add(linked, 1, 'now');
+	linked_add(linked, 1, 'hello');
+	linked_print(linked);
 
 	free(data);
 	int a = linked_destroy(linked);
