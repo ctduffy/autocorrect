@@ -167,8 +167,8 @@ int main(){
 
 	linked_t result = linked_create();
 
-	linked_t result = linked_add(linked, 1, first);
-	linked_t result = linked_add(linked, 1, second);
+	result = linked_add(linked, 1, first);
+	result = linked_add(linked, 1, second);
 	linked_print(result);
 
 	free(data);
