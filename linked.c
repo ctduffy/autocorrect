@@ -52,10 +52,12 @@ int linked_add(linked_t list, int freq, char* word){
 
 	while(this->frequency > freq){
 		this = this->next;
+		printf("%d\n", this->frequency);
+		printf("%d\n", freq);
+		
 	}
 	this->next = now;
 	now->next = this->next;
-
 	return 0;
 	/*
 
