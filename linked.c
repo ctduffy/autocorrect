@@ -38,10 +38,10 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* word){
+	printf("searching through list, on word: %s\n", list->word);
 	if(list == NULL){
 		return -1;
 	}
-	printf("searching through list, on word: %s\n", list->word);
 	else if(list->next == NULL){//if this is the last thing in the list
 		linked_t now = malloc(sizeof(struct linked_node));
 		now->word = word;
