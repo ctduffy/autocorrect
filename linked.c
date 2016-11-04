@@ -61,13 +61,13 @@ int linked_add(linked_t list, int freq, char* word){
 	return 0;
 	*/
 	while(this != NULL){
-		if(this->next == NULL){
+		if(this->next == NULL){//if this is the last thing in the list
 			this->next = now;
 			now->next = NULL;
 			return 0;
 		}
-		else if(this->frequency > freq){
-			if(freq > this->next->frequency){
+		else if(this->frequency > freq){// if this node has a higher frequency than freq
+			if(freq > this->next->frequency){ //if the node after this one has a lower frequency than freq
 				now->next = this->next;
 				this->next = now;
 				return 0;
@@ -135,7 +135,7 @@ void linked_print(linked_t list){
 			printf("this word is: %s, its freq is: %d\n", list->word, list->frequency);
 			linked_print(list->next);
 		}
-		else if(list->word == NULL && list->frequency == -1 && list->next != NULL){
+		else if(list->word == NULL){
 			linked_print(list->next);
 		}
 	}
