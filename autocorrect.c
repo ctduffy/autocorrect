@@ -17,6 +17,30 @@ struct curr_data{
 	trie_t start;
 };
 
+void wordmaker(char* word, trie_t now){
+	int i;
+	//char* nexlist[26];
+	for(i = 0; i<26; i++){
+		char n = ((char) i + 97);
+
+		int len = strlen(word);
+
+	    char nex[len+1];
+	    int j;
+	    for(j = 0; j<len; j++){
+	    	nex[j] = word[j];
+	    } 
+	    nex[len] = n;
+	    nex[len+1] = '\0';
+	    //nexlist[i] = nex;
+	    if(get_letter(get_next_trie(now, i)) != NULL){
+	    	printf("added %c\n", n);
+	    	printf("This works! continuing on this path\n");
+			trie_search(list, trie, nex);
+	    }
+	}
+}
+
 linked_t trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
@@ -37,41 +61,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		printf("found a word!!, adding: %s\n", word);
 		linked_add(list, get_trie_frequency(now), word);
 	}
-	int i;
-	char* nexlist[26];
-	//int len = (int) strlen(word);
-	//char* newword = word;
-	for(i = 0; i<26; i++){
-		char n = ((char) i + 97);
-
-		int len = strlen(word);
-
-	    char nex[len+1];
-	    int j;
-	    for(j = 0; j<len; j++){
-	    	nex[j] = word[j];
-	    } 
-	    nex[len] = n;
-	    nex[len+1] = '\0';
-	    nexlist[i] = nex;
-	    /*
-	    printf("trying %s\n", nex);
-	    if(get_letter(get_next_trie(now, i)) != NULL){
-	    	
-
-	    	printf("added %c\n", n);
-	    	printf("This works! continuing on this path\n");
-			return trie_search(list, trie, nex);
-	    }
-	    */
-	}
-	for(i=0; i<26; i++){
-		if(get_letter(get_next_trie(now, i)) != NULL){
-	    	printf("added %c\n", n);
-	    	printf("This works! continuing on this path\n");
-			return trie_search(list, trie, nex);
-	    }
-	}
+	wordmaker(word, now);
 	return list;
 }
 
