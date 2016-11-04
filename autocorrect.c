@@ -8,7 +8,7 @@
 /////run with:   gcc -g -std=c99 linked.c trie.c autocorrect.c -o rt
 
 
-linked_t trie_search(linked_t list, trie_t trie, char* word);
+int trie_search(linked_t list, trie_t trie, char* word);
 
 typedef struct curr_data* data_t;
 
