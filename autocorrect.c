@@ -82,7 +82,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 				}
 			}
 			*/
-		}///////CONTINUE WORKING AROUND HERE.n
+		}
 
 		return trie_search(list, data->start, data->word);
 	}
