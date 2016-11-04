@@ -164,8 +164,11 @@ int main(){
 
 	//linked_print(result);
 
-	linked_add(linked, 1, 'now');
-	linked_add(linked, 1, 'hello');
+	char* first = 'wrod';
+	char* second = 'set';
+
+	linked_add(linked, 1, first);
+	linked_add(linked, 1, second);
 	linked_print(linked);
 
 	free(data);
