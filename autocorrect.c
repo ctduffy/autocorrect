@@ -167,7 +167,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	char* first = "wrod";
 	char* second = "set";
 
-	linked_t result = linked_create();
+	linked_t linked = linked_create();
 
 	linked = linked_add(linked, 1, first);
 	linked = linked_add(linked, 1, second);
