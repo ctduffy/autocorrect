@@ -45,6 +45,28 @@ int linked_add(linked_t list, int freq, char* word){
 		return 0;
 	}
 	else{
+		linked_t now = malloc(sizeof(struct linked_node));
+		now->word = word;
+		now->frequency = freq;
+
+		int next = list->next->frequency;
+		linked_t this = list->next;
+
+		while(!(next <= frequency)){
+			if(this->next != NULL){
+				this = this->next;
+			}
+			else{
+				now->next = NULL;
+				this->next = now;
+				return 0;
+			}
+		}
+		now->next = list->next;
+		list->next = now;
+		return 0;
+
+		/*
 		if(list->next->frequency <= freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
@@ -68,7 +90,9 @@ int linked_add(linked_t list, int freq, char* word){
 					return 0;
 				}
 			}
+
 		}
+		*/
 	}
 }
 
