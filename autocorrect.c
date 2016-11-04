@@ -158,7 +158,7 @@ int main(){
 	data->word = "aard";
 	data->start = trie;
 
-	linked_t linked = autocomplete(linked, trie, "aardwo", data);
+	linked = autocomplete(linked, trie, "aardwo", data);
 
 	linked_print(linked);
 
