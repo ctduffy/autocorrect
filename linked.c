@@ -72,8 +72,8 @@ int linked_add(linked_t list, int freq, char* word){
 				this->next = now;
 				return 0;
 			}
+			this = this->next;
 		}
-		this = this->next;
 	}
 
 	/*
