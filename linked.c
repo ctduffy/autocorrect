@@ -30,6 +30,7 @@ linked_t linked_create(){
 }
 
 int linked_destroy(linked_t curr){
+	
 	if(curr->next != NULL){
 		linked_destroy(curr->next);
 	}
@@ -48,17 +49,18 @@ int linked_add(linked_t list, int freq, char* word){
 		if(this->next == NULL){//if this is the last thing in the list
 			this->next = now;
 			now->next = NULL;
-			return 0;
+			break;
 		}
 		else if(this->frequency > freq){// if this node has a higher frequency than freq
 			if(freq > this->next->frequency){ //if the node after this one has a lower frequency than freq
 				now->next = this->next;
 				this->next = now;
-				return 0;
+				break;
 			}
 		}
 		this = this->next;
 	}
+	return 0;
 
 }
 

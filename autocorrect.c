@@ -155,7 +155,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	data->word = "aard";
 	data->start = trie;
 
-	linked = autocomplete(linked, trie, "aardwo", data);
+	autocomplete(linked, trie, "aardwo", data);
 
 	linked_print(linked);
 
