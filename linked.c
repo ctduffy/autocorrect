@@ -44,7 +44,7 @@ int linked_add(linked_t list, int freq, char* word){
 	now->word = word;
 	now->frequency = freq;
 	while(this != NULL){
-		printf("searching through list, on word: %s", this->word);
+		printf("searching through list, on word: %s\n", this->word);
 		if(this->next == NULL){//if this is the last thing in the list
 			this->next = now;
 			now->next = NULL;
@@ -56,8 +56,8 @@ int linked_add(linked_t list, int freq, char* word){
 				this->next = now;
 				return 0;
 			}
-			this = this->next;
 		}
+		this = this->next;
 	}
 
 }
