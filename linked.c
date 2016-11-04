@@ -22,8 +22,8 @@ int get_frequency(linked_t this){
 
 linked_t linked_create(){
 	linked_t newlinked = malloc(sizeof(struct linked_node));
-	newlinked->word = NULL;
-	newlinked->frequency = NULL;
+	newlinked->word = -1;
+	newlinked->frequency = -1;
 	newlinked->next = NULL;
 	return newlinked;
 }
@@ -37,21 +37,21 @@ int linked_destroy(linked_t curr){
 }
 
 linked_t linked_add(linked_t list, int freq, char* word){
-	if(list->word == NULL){
-		list->frequency = freq;
-		list->word = word;
+	if(list->word == -1 && list->frequency == -1 && list->next != NULL){
+		list->next->frequency = freq;
+		list->next->word = word;
 		return list;
 	}
 	else{
-		if(list->frequency == freq){
+		if(list->next->frequency == freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
 			now->frequency = freq;
-			now->next = list;
+			now->next = list->next;
 			return now;
 		}
 		else{
-			linked_t this = list;
+			linked_t this = list->next;
 			while(this->frequency > freq){
 				if(this->next != NULL){
 					this = this->next;
@@ -76,6 +76,9 @@ void linked_print(linked_t list){
 	if(list != NULL){
 		if(list->word != NULL){
 			printf("this word is: %s, its freq is: %d\n", list->word, list->frequency);
+			linked_print(list->next);
+		}
+		else if(list->word == -1 && list->frequency == -1 && list->next != NULL){
 			linked_print(list->next);
 		}
 	}

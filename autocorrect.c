@@ -61,7 +61,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		printf("found a word!!, adding: %s\n", word);
 		list = linked_add(list, get_trie_frequency(now), word);
 	}
-	wordmaker(word, now, trie, list);
+	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
 	return list;
 }
 
@@ -76,15 +76,6 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			printf("this freq is greater than 0\n");
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
-			/*
-			int i;
-			for(i=0; i<26; i++){
-				if(get_next_trie(trie, i) != NULL){
-					printf("a next trie is not null, searching further at letter %d\n", i);
-					return trie_search(list, data->start, data->word);
-				}
-			}
-			*/
 		}
 
 		return trie_search(list, data->start, data->word);
