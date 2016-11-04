@@ -43,15 +43,15 @@ linked_t linked_add(linked_t list, int freq, char* word){
 		return list;
 	}
 	else{
-		linked_t this = list;
-		if(this->frequency == freq){
+		if(list->frequency == freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
 			now->frequency = freq;
-			now->next = this;
+			now->next = list;
 			return now;
 		}
 		else{
+			linked_t this = list;
 			while(this->frequency > freq){
 				if(this->next != NULL){
 					this = this->next;
