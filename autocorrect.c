@@ -41,7 +41,7 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 	}
 }
 
-linked_t trie_search(linked_t list, trie_t trie, char* word){
+int trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
 	while(nowword[0]!= NULL){
@@ -62,10 +62,10 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 		linked_add(list, get_trie_frequency(now), word);
 	}
 	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
-	return list;
+	return 0;
 }
 
-linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
+int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	//printf("DID IT MAKE IT HERE\n");
 	//printf("curr is %c\n", curr[0]);
 	if(curr == NULL){
@@ -96,6 +96,7 @@ linked_t autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 			printf("trie is null?\n");
 		}
 	}
+	return 0;
 }
 
 linked_t autocorrect(linked_t list, trie_t trie, char* curr, int maxld){
@@ -143,7 +144,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	//printf("%s", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
 	//printf("%i", argc)
 	
-	/*
+	
 
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
@@ -162,8 +163,8 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	free(data);
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
-	*/
-
+	
+	/*
 	char* first = "word";
 	char* second = "set";
 	char* third = "setting";
@@ -174,9 +175,9 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	linked_add(linked, 1, second);
 	linked_add(linked, 3, third);
 	linked_add(linked, 2, first);
-
+	
 	linked_print(linked);
-
+	*/
 	return 0;
 }
 
