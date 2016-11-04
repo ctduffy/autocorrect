@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <limits.h>
 #include "linked.h"
 
  
@@ -23,7 +24,7 @@ int get_frequency(linked_t this){
 linked_t linked_create(){
 	linked_t newlinked = malloc(sizeof(struct linked_node));
 	newlinked->word = NULL;
-	newlinked->frequency = -1;
+	newlinked->frequency = INT_MAX;
 	newlinked->next = NULL;
 	return newlinked;
 }
@@ -37,13 +38,27 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* word){
-	if(list->word == NULL && list->frequency == -1 && list->next == NULL){
+	/*if(list->word == NULL && list->frequency == -1 && list->next == NULL){
 		linked_t now = malloc(sizeof(struct linked_node));
 		now->frequency = freq;
 		now->word = word;
 		list->next = now;
 		return 0;
+	}*/
+	linked_t this = list;
+	linked_t now = malloc(sizeof(struct linked_node));
+	now->word = word;
+	now->frequency = freq;
+
+	while(this->frequency > freq){
+		this = this->next;
 	}
+	this->next = now;
+	now->next = this->next;
+
+	return 0;
+	/*
+
 	else{
 		linked_t now = malloc(sizeof(struct linked_node));
 		now->word = word;
@@ -65,8 +80,6 @@ int linked_add(linked_t list, int freq, char* word){
 		now->next = list->next;
 		list->next = now;
 		return 0;
-
-		/*
 		if(list->next->frequency <= freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
