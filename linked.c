@@ -44,28 +44,29 @@ linked_t linked_add(linked_t list, int freq, char* word){
 	}
 	else{
 		linked_t this = list;
-		int cont = 1;
-		while(this->frequency > freq){
-			if(this->next != NULL){
-				this = this->next;
-				cont = 1;
-			}
-			else{
-				cont = 0;
-				linked_t new = malloc(sizeof(struct linked_node));
-				new->word = word;
-				new->frequency = freq;
-				new->next = NULL;
-				this->next = new;
-				return this;
-			}
-		}
-		if(cont = 1){
+		if(this->frequency == freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
 			now->frequency = freq;
 			now->next = this;
 			return now;
+		}
+		else{
+			while(this->frequency > freq){
+				if(this->next != NULL){
+					this = this->next;
+					//cont = 1;
+				}
+				else{
+					//cont = 0;
+					linked_t new = malloc(sizeof(struct linked_node));
+					new->word = word;
+					new->frequency = freq;
+					new->next = NULL;
+					this->next = new;
+					return this;
+				}
+			}
 		}
 	}
 }
