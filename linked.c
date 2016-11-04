@@ -107,8 +107,8 @@ int linked_add(linked_t list, int freq, char* word){
 			}
 
 		}
-		*/
-	}
+	s}*/
+
 }
 
 void linked_print(linked_t list){
