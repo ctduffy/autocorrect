@@ -158,14 +158,14 @@ int main(){
 	data->word = "aard";
 	data->start = trie;
 
-	printf("here?\n");
-
 	//linked_t result = autocomplete(linked, trie, "aardwo", data);
 
 	//linked_print(result);
 
 	char* first = "wrod";
 	char* second = "set";
+
+	linked_t result = linked_create();
 
 	linked_t result = linked_add(linked, 1, first);
 	linked_t result = linked_add(linked, 1, second);
