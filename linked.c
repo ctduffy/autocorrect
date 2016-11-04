@@ -49,7 +49,7 @@ int linked_add(linked_t list, int freq, char* word){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
 			now->frequency = freq;
-			now->next = list->next->next;
+			now->next = list->next;
 			list->next = now;
 			return 0;
 		}
