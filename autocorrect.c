@@ -158,18 +158,18 @@ int main(){
 	data->word = "aard";
 	data->start = trie;
 
-	//linked_t result = autocomplete(linked, trie, "aardwo", data);
+	linked_t linked = autocomplete(linked, trie, "aardwo", data);
 
-	//linked_print(result);
-
-	char* first = "wrod";
-	char* second = "set";
-
-	linked_t result = linked_create();
-
-	linked = linked_add(linked, 1, first);
-	linked = linked_add(linked, 1, second);
 	linked_print(linked);
+
+	//char* first = "wrod";
+	//char* second = "set";
+
+	//linked_t result = linked_create();
+
+	//linked = linked_add(linked, 1, first);
+	//linked = linked_add(linked, 1, second);
+	//linked_print(linked);
 
 	free(data);
 	int a = linked_destroy(linked);
