@@ -36,37 +36,36 @@ int linked_destroy(linked_t curr){
 	return 0;
 }
 
-linked_t linked_add(linked_t list, int freq, char* word){
+int linked_add(linked_t list, int freq, char* word){
 	if(list->word == NULL && list->frequency == -1 && list->next == NULL){
 		linked_t now = malloc(sizeof(struct linked_node));
 		now->frequency = freq;
 		now->word = word;
 		list->next = now;
-		return list;
+		return 0;
 	}
 	else{
-		if(list->next->frequency == freq){
+		if(list->next->frequency <= freq){
 			linked_t now = malloc(sizeof(struct linked_node));
 			now->word = word;
 			now->frequency = freq;
-			now->next = list->next;
-			return now;
+			now->next = list->next->next;
+			list->next = now;
+			return 0;
 		}
 		else{
 			linked_t this = list->next;
 			while(this->frequency > freq){
 				if(this->next != NULL){
 					this = this->next;
-					//cont = 1;
 				}
 				else{
-					//cont = 0;
 					linked_t new = malloc(sizeof(struct linked_node));
 					new->word = word;
 					new->frequency = freq;
 					new->next = NULL;
 					this->next = new;
-					return this;
+					return 0;
 				}
 			}
 		}

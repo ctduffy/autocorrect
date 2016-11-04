@@ -59,7 +59,7 @@ linked_t trie_search(linked_t list, trie_t trie, char* word){
 	}
 	if(get_trie_frequency(now) > 0){
 		printf("found a word!!, adding: %s\n", word);
-		list = linked_add(list, get_trie_frequency(now), word);
+		linked_add(list, get_trie_frequency(now), word);
 	}
 	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
 	return list;
@@ -142,6 +142,9 @@ int trie_starter(trie_t trie, char* filepath){
 int main(){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
 	//printf("%s", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
 	//printf("%i", argc)
+	
+	/*
+
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 	int j = trie_starter(trie, "wordsEn.txt");
@@ -155,18 +158,21 @@ int main(){ //To have this function take command line arguments: do: int main(in
 
 	linked_print(linked);
 
-	//char* first = "wrod";
-	//char* second = "set";
-
-	//linked_t result = linked_create();
-
-	//linked = linked_add(linked, 1, first);
-	//linked = linked_add(linked, 1, second);
-	//linked_print(linked);
-
+	
 	free(data);
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
+	*/
+
+	char* first = "wrod";
+	char* second = "set";
+
+	linked_t result = linked_create();
+
+	linked = linked_add(linked, 1, first);
+	linked = linked_add(linked, 1, second);
+
+	linked_print(linked);
 
 	return 0;
 }
