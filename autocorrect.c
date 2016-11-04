@@ -169,7 +169,7 @@ int main(){
 
 	linked = linked_add(linked, 1, first);
 	linked = linked_add(linked, 1, second);
-	linked_print(result);
+	linked_print(linked);
 
 	free(data);
 	int a = linked_destroy(linked);
