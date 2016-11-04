@@ -164,7 +164,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	int b = trie_destroy(trie);
 	*/
 
-	char* first = "wrod";
+	char* first = "word";
 	char* second = "set";
 	char* third = "setting";
 

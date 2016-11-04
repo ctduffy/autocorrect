@@ -49,16 +49,33 @@ int linked_add(linked_t list, int freq, char* word){
 	linked_t now = malloc(sizeof(struct linked_node));
 	now->word = word;
 	now->frequency = freq;
-
+//need to look 2 ahead
 	while(this->frequency > freq){
+
 		this = this->next;
 		printf("%d\n", this->frequency);
 		printf("%d\n", freq);
-		
 	}
 	this->next = now;
 	now->next = this->next;
 	return 0;
+
+	while(this != NULL){
+		if(this->next == NULL){
+			this->next = now;
+			now->next = NULL;
+			return 0;
+		}
+		else if(this->frequency > freq){
+			if(freq > this->next->frequency){
+				now->next = this->next;
+				this->next = now;
+				return 0;
+			}
+		}
+		this = this->next;
+	}
+
 	/*
 
 	else{
