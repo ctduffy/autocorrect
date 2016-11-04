@@ -38,29 +38,13 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* word){
-	/*if(list->word == NULL && list->frequency == -1 && list->next == NULL){
-		linked_t now = malloc(sizeof(struct linked_node));
-		now->frequency = freq;
-		now->word = word;
-		list->next = now;
-		return 0;
-	}*/
+
 	linked_t this = list;
 	linked_t now = malloc(sizeof(struct linked_node));
 	now->word = word;
-	now->frequency = freq;/*
-//need to look 2 ahead
-	while(this->frequency > freq){
-
-		this = this->next;
-		printf("%d\n", this->frequency);
-		printf("%d\n", freq);
-	}
-	this->next = now;
-	now->next = this->next;
-	return 0;
-	*/
+	now->frequency = freq;
 	while(this != NULL){
+		printf("searching through list, on word: %s", this->word);
 		if(this->next == NULL){//if this is the last thing in the list
 			this->next = now;
 			now->next = NULL;
@@ -75,56 +59,6 @@ int linked_add(linked_t list, int freq, char* word){
 			this = this->next;
 		}
 	}
-
-	/*
-
-	else{
-		linked_t now = malloc(sizeof(struct linked_node));
-		now->word = word;
-		now->frequency = freq;
-
-		int next = list->next->frequency;
-		linked_t this = list->next;
-
-		while(next < freq){
-			if(this->next != NULL){
-				this = this->next;
-			}
-			else{
-				now->next = NULL;
-				this->next = now;
-				return 0;
-			}
-		}
-		now->next = list->next;
-		list->next = now;
-		return 0;
-		if(list->next->frequency <= freq){
-			linked_t now = malloc(sizeof(struct linked_node));
-			now->word = word;
-			now->frequency = freq;
-			now->next = list->next;
-			list->next = now;
-			return 0;
-		}
-		else{
-			linked_t this = list->next;
-			while(this->frequency > freq){
-				if(this->next != NULL){
-					this = this->next;
-				}
-				else{
-					linked_t new = malloc(sizeof(struct linked_node));
-					new->word = word;
-					new->frequency = freq;
-					new->next = NULL;
-					this->next = new;
-					return 0;
-				}
-			}
-
-		}
-	s}*/
 
 }
 
