@@ -37,7 +37,7 @@ int linked_destroy(linked_t curr){
 }
 
 linked_t linked_add(linked_t list, int freq, char* word){
-	if(list->word == NULL && list->frequency == -1 && list->next != NULL){
+	if(list->word == NULL && list->frequency == -1 && list->next == NULL){
 		list->next->frequency = freq;
 		list->next->word = word;
 		return list;
