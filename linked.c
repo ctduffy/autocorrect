@@ -48,7 +48,7 @@ int linked_add(linked_t list, int freq, char* word){
 	linked_t this = list;
 	linked_t now = malloc(sizeof(struct linked_node));
 	now->word = word;
-	now->frequency = freq;
+	now->frequency = freq;/*
 //need to look 2 ahead
 	while(this->frequency > freq){
 
@@ -59,7 +59,7 @@ int linked_add(linked_t list, int freq, char* word){
 	this->next = now;
 	now->next = this->next;
 	return 0;
-
+	*/
 	while(this != NULL){
 		if(this->next == NULL){
 			this->next = now;
