@@ -167,8 +167,8 @@ int main(){
 	char* first = "wrod";
 	char* second = "set";
 
-	linked_add(linked, 1, first);
-	linked_add(linked, 1, second);
+	linked_t result = linked_add(linked, 1, first);
+	linked_t result = linked_add(linked, 1, second);
 	linked_print(linked);
 
 	free(data);
