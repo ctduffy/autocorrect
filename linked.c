@@ -48,11 +48,11 @@ int linked_add(linked_t list, int freq, char* word){
 		char tword[100];
 		
 		int i = 0;
-		while(line[i] != '\0'){
+		while(word[i] != '\0'){
 			tword[i] = word[i];
 			i++;
 		}
-		this[i]='\0';
+		tword[i]='\0';
 		now->word = tword;
 		now->frequency = freq;
 		list->next = now;
@@ -66,11 +66,11 @@ int linked_add(linked_t list, int freq, char* word){
 			char tword[100];
 			
 			int i = 0;
-			while(line[i] != '\0'){
+			while(word[i] != '\0'){
 				tword[i] = word[i];
 				i++;
 			}
-			this[i]='\0';
+			tword[i]='\0';
 			now->word = tword;
 			now->next = list->next;
 			list->next = now;
