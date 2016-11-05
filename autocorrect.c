@@ -3,7 +3,7 @@
 #include <string.h>
 #include "trie.h"
 #include "linked.h"
-
+/*
 
 /////run with:   gcc -g -std=c99 linked.c trie.c autocorrect.c -o rt
 
@@ -108,7 +108,7 @@ suggest(){
 linked_t autocorrect(linked_t toSearch, trie_t suggestions, char* toCorrect, int maxEdit){
 
 }
-*/
+
 int trie_starter(trie_t trie, char* filepath){
 
 	FILE* fp;
@@ -161,6 +161,13 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	int b = trie_destroy(trie);
 	
 	/*
+	
+}
+*/
+
+
+int main(){
+
 	char* first = "word";
 	char* second = "set";
 	char* third = "setting";
@@ -170,10 +177,13 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	linked_add(linked, 1, first);
 	linked_add(linked, 1, second);
 	linked_add(linked, 3, third);
+	first[0]= 'o';
 	linked_add(linked, 2, first);
 	
 	linked_print(linked);
-	*/
-	return 0;
-}
 
+	linked_destroy(linked);
+	
+	return 0;
+
+}
