@@ -117,7 +117,7 @@ int trie_starter(trie_t trie, char* filepath){
 
 	while(fgets(line, sizeof(line), fp) != NULL){ //takes in file line by line, loading word into variable line, until it reaches a new line
 		strtok(line, "\n"); //removes \n from the end of the string that is taken in by fgets
-		
+		/*
 		//below function removes everything from string except letters. Source: http://www.programiz.com/c-programming/examples/remove-characters-string
 		int i;
 		int j;
@@ -132,6 +132,7 @@ int trie_starter(trie_t trie, char* filepath){
 	            line[j]='\0';
 	        }
 	    }
+	    */
 		trie_insert(trie, line);
 	}
 	fclose(fp);
