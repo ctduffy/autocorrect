@@ -60,12 +60,14 @@ int linked_add(linked_t list, int freq, char* wordle){
 		if(freq >= list->next->frequency){ //if the node after this one has a lower frequency than freq
 			printf("worlde %s\n", wordle);
 			int size = sizeof(wordle);
-			char *str = (char *)malloc(sizeof(char)*(size+1));
+			char *str = (char *)malloc(sizeof(char)*(size));
 			int i;
-			for(i=0; i<size ;i++){
+			for(i=0; i<size; i++){
 				*(str+i) = wordle[i];
+				printf("time through: %d\n", i);
 				printf("str:%s, worldld: %s\n", str, wordle);
 			}
+			str[size] = '\0';
 			linked_t now = malloc(sizeof(struct linked_node));
 			printf("str  %s\n", str);
 			now->word = str;
