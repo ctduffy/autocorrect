@@ -38,7 +38,6 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* wordle){
-	printf("%s\n", wordle);
 	if(list == NULL){
 		return -1;
 	}
@@ -71,7 +70,6 @@ int linked_add(linked_t list, int freq, char* wordle){
 			now->frequency = freq;
 			now->next = list->next;
 			list->next = now;
-			printf("%s\n", str);
 			return 0;
 		}
 		else{
