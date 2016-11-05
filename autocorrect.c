@@ -116,9 +116,16 @@ int trie_starter(trie_t trie, char* filepath){
 	fp = fopen(filepath, "r");
 
 	while(fgets(line, sizeof(line), fp) != NULL){ //takes in file line by line, loading word into variable line, until it reaches a new line
-		strtok(line, "\r");
-		strtok(line, "\n"); //removes \n from the end of the string that is taken in by fgets
-		trie_insert(trie, line);
+		int c = strtok(line, "\r");
+		//strtok(line, "\n"); //removes \n from the end of the string that is taken in by fgets
+		char* this = malloc(c * sizeof(char));
+		int i;
+		for(i = 0; i < c-1; i++){
+			this[i] = line[i];
+		}
+		this[c]='/0';
+
+		trie_insert(trie, this);
 	}
 	fclose(fp);
 	return 0;
