@@ -48,7 +48,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	nowword[size] = '\0';
 
-	while(nowword[0]!= NULL){
+	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
 		if(get_letter(now) == NULL){
 			now = get_next_trie(now, (int) nowword[0] - 97);
 		}
@@ -63,11 +63,10 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	if(get_trie_frequency(now) > 0){
 		printf("%s\n", word);
 		char* thisone = word;
-		//if you uncomment this line you have to fix linked list so it doesnt only pass by reference. 
-		//What happens is: it puts the pointer to the word in the list, then later changes what is in that pointer, screwing everything up
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
-	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
+	printf("continueing with: %s\n", word)
+	wordmaker(word, now, trie, list); 
 	return 0;
 }
 
