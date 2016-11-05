@@ -3,7 +3,6 @@
 #include <string.h>
 #include "trie.h"
 #include "linked.h"
-/*
 
 /////run with:   gcc -g -std=c99 linked.c trie.c autocorrect.c -o rt
 
@@ -59,7 +58,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		char* thisone = word;
 		//if you uncomment this line you have to fix linked list so it doesnt only pass by reference. 
 		//What happens is: it puts the pointer to the word in the list, then later changes what is in that pointer, screwing everything up
-		//linked_add(list, get_trie_frequency(now), &thisone);
+		linked_add(list, get_trie_frequency(now), thisone);
 	}
 	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
 	return 0;
@@ -77,7 +76,7 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			//printf("this freq is greater than 0\n");
 			printf("%c", curr[0]);
-			//return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
+			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
 
 		return trie_search(list, data->start, data->word);
@@ -108,7 +107,7 @@ suggest(){
 linked_t autocorrect(linked_t toSearch, trie_t suggestions, char* toCorrect, int maxEdit){
 
 }
-
+*/
 int trie_starter(trie_t trie, char* filepath){
 
 	FILE* fp;
@@ -135,23 +134,22 @@ int trie_starter(trie_t trie, char* filepath){
 	return 0;
 }
 
-int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
-	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
-	printf("word given: %s\n", argv[2]);
-	printf("num of args given: %i\n", argc);
+int main(){
+//int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
+//	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
+//	printf("word given: %s\n", argv[2]);
+//	printf("num of args given: %i\n", argc);
 	
-	
-
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, argv[1]);
+	int j = trie_starter(trie, "wordsfirst.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
-	data->word = argv[2];
+	data->word = 'aa';
 	data->start = trie;
 
-	autocomplete(linked, trie, argv[2], data);
+	autocomplete(linked, trie, 'aa', data);
 
 	//linked_print(linked);
 
@@ -160,12 +158,10 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
 	
-	/*
-	
 }
-*/
 
 
+/*
 int main(){
 
 	char* first = "word";
@@ -186,5 +182,4 @@ int main(){
 	linked_destroy(linked);
 	
 	return 0;
-
-}
+}*/
