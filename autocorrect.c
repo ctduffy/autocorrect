@@ -122,7 +122,7 @@ int trie_starter(trie_t trie, char* filepath){
 		int i = 0;
 		while(line[i] != '\n' && line[i] != '\r'){
 			this[i] = line[i];
-			i++
+			i++;
 		}
 		this[i]='\0';
 
