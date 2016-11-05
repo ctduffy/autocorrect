@@ -6,7 +6,7 @@
 
  
 struct linked_node{
-	char* word;
+	char word[50];
 	int frequency;
 	linked_t next;
 };
