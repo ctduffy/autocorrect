@@ -136,7 +136,7 @@ int trie_starter(trie_t trie, char* filepath){
 
 int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
 	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
-	printf("word given: %s\n", argv[2])
+	printf("word given: %s\n", argv[2]);
 	printf("num of args given: %i\n", argc);
 	
 	
