@@ -19,20 +19,21 @@ struct curr_data{
 void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 	int i;
 	//char* nexlist[26];
-	for(i = 0; i<26; i++){
-		char n = ((char) i + 97);
+	for(i = 0; i<26; i++){//for each letter
+		char n = ((char) i + 97); //make a new letter from a to z
 
-		int len = strlen(word);
+		int len = strlen(word); //get length of current word
 
-	    char nex[len+1];
+	    char nex[len+1]; //make a new char with one more than the length of the current word
 	    int j;
 	    for(j = 0; j<len; j++){
-	    	nex[j] = word[j];
+	    	nex[j] = word[j]; //copy the current word into nex
 	    } 
-	    nex[len] = n;
-	    nex[len+1] = '\0';
-	    if(get_letter(get_next_trie(now, i)) != NULL){
-			trie_search(list, trie, nex);
+	    nex[len] = n; //add the new letter onto nex
+	    nex[len+1] = '\0'; //then add a end of string character onto it
+	    if(get_letter(get_next_trie(now, i)) != NULL){ //then if the letter of the next trie of the letter just added isnt null
+			printf("adding this letter, supposedly works: %c\n", get_letter(get_next_trie(now, i)));
+			trie_search(list, trie, nex); //search for it with trie search
 	    }
 	}
 }
@@ -64,7 +65,9 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		printf("%s\n", word);
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
+		wordmaker(word, now, trie, list);
 	}
+
 	wordmaker(word, now, trie, list);
 	/*
 	if(get_trie_frequency(now) != NULL){
