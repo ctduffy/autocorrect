@@ -155,7 +155,7 @@ int main(){
 
 	autocomplete(linked, trie, wo, data);
 
-	//linked_print(linked);
+	linked_print(linked);
 
 	
 	free(data);
