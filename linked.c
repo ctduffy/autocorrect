@@ -44,9 +44,9 @@ int linked_add(linked_t list, int freq, char* word){
 	}
 	else if(list->next == NULL){//if this is the last thing in the list
 		linked_t now = malloc(sizeof(struct linked_node));
-				char tword[static_cast<int>sizeof(word)];
+				char tword[static_cast<int>(sizeof(word))];
 		int i;
-		for(int i; i < static_cast<int>sizeof(word); i++){
+		for(int i; i < static_cast<int>(sizeof(word)); i++){
 			tword[i] = word[i];
 		}
 		tword[static_cast<int>sizeof(word)] = '\0';
@@ -59,9 +59,9 @@ int linked_add(linked_t list, int freq, char* word){
 	else if(list->frequency > freq){// if this node has a higher frequency than freq
 		if(freq >= list->next->frequency){ //if the node after this one has a lower frequency than freq
 			linked_t now = malloc(sizeof(struct linked_node));
-			char tword[static_cast<int>sizeof(word)];
+			char tword[static_cast<int>(sizeof(word))];
 			int i;
-			for(int i; i < static_cast<int>sizeof(word); i++){
+			for(int i; i < static_cast<int>(sizeof(word)); i++){
 				tword[i] = word[i];
 			}
 			tword[static_cast<int>sizeof(word)] = '\0';
