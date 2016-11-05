@@ -164,7 +164,7 @@ int main(){
 
 	char wo[leng];
 
-	strcpy(wo, "aba");
+	strcpy(wo, "ab");
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = wo;
