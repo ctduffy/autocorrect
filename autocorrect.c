@@ -70,9 +70,9 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	int i;
 	for(i=0; i<26; i++){
-	if(get_next_trie(now, i) != NULL){
-		wordmaker(word, now, trie, list);
-	}
+		if(get_next_trie(now, i) != NULL){
+			wordmaker(word, now, trie, list);
+		}
 	}
 	return 0;
 }
