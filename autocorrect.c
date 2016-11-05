@@ -53,7 +53,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		if(get_letter(now) == NULL){ //if the current letter in the trie is null
 			now = get_next_trie(now, (int) nowword[0] - 97); //move down the trie one letter, to the first letter of nowword
 		}
-		else if(nowword[1] != '\0'){
+		else if(nowword[1] == '\0'){
 
 		}
 		else if(get_letter(get_next_trie(now, (int) nowword[1] - 97)) != NULL){ //else if the trie node at the next letter in nowword isnt null
