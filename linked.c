@@ -44,7 +44,7 @@ int linked_add(linked_t list, int freq, char* word){
 	now->frequency = freq;
 	now->next = list->next;
 	list->next = now;
-	word = 'rr';
+	word[0] = 'r';
 	/*
 	
 
