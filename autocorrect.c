@@ -126,7 +126,7 @@ int trie_starter(trie_t trie, char* filepath){
 		}
 		this[i]='\0';
 
-		printf("str: %s", this);
+		printf("str: %s\n", this);
 
 		trie_insert(trie, this);
 	}
@@ -142,7 +142,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, "wordsEn.txt");
+	int j = trie_starter(trie, "wordsfirst.txt");
 	printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
