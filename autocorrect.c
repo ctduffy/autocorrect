@@ -123,7 +123,7 @@ int trie_starter(trie_t trie, char* filepath){
 		for(i = 0; i < c-1; i++){
 			this[i] = line[i];
 		}
-		this[c]='/0';
+		this[c-1]='/0';
 
 		trie_insert(trie, this);
 	}
