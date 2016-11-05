@@ -58,6 +58,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 	}
 	else if(list->frequency > freq){// if this node has a higher frequency than freq
 		if(freq >= list->next->frequency){ //if the node after this one has a lower frequency than freq
+			printf("worlde %s\n", wordle);
 			int size = sizeof(wordle);
 			char *str = (char *)malloc(sizeof(char)*size);
 			int i;
@@ -65,6 +66,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 				*(str+i) = wordle[i];
 			}
 			linked_t now = malloc(sizeof(struct linked_node));
+			printf("str  %s\n", str);
 			now->word = str;
 			now->frequency = freq;
 			now->next = list->next;
