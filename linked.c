@@ -41,7 +41,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 	//printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
 	int size = sizeof(wordle);
 	char *str = (char *)malloc(sizeof(char)*size);
-	str +0 = wordle[0];
+	*(str+0) = wordle[0];
 
 	linked_t now = malloc(sizeof(struct linked_node));
 	now->word = str;
