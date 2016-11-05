@@ -156,7 +156,7 @@ int main(){
 	
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, "wordssecond.txt");
+	int j = trie_starter(trie, "wordsEn.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
 
