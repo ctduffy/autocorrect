@@ -143,14 +143,14 @@ int main(int argc, char** argv){ //To have this function take command line argum
 
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, "wordsfirst.txt");
+	int j = trie_starter(trie, argv[1]);
 	//printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
-	data->word = "aard";
+	data->word = argv[2];
 	data->start = trie;
 
-	autocomplete(linked, trie, "aardwo", data);
+	autocomplete(linked, trie, data->word, data);
 
 	//linked_print(linked);
 
