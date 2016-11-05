@@ -62,7 +62,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 			int size = sizeof(wordle);
 			char *str = (char *)malloc(sizeof(char)*size);
 			int i;
-			for(i=0;i<size;i++){
+			for(i=0;i<(size-1);i++){
 				*(str+i) = wordle[i];
 				printf("str:%s, worldld: %s\n", str, wordle);
 			}
