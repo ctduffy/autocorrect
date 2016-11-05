@@ -40503,7 +40503,6 @@ glances
 glancing
 glancingly
 gland
-
 glanders
 glandes
 glands
