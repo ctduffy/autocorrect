@@ -55,9 +55,11 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		
 	}
 	if(get_trie_frequency(now) > 0){
-		printf("found a word!!, adding: %s\n", word);
+		printf("%s\n", word);
 		char* thisone = word;
-		linked_add(list, get_trie_frequency(now), &thisone);
+		//if you uncomment this line you have to fix linked list so it doesnt only pass by reference. 
+		//What happens is: it puts the pointer to the word in the list, then later changes what is in that pointer, screwing everything up
+		//linked_add(list, get_trie_frequency(now), &thisone);
 	}
 	wordmaker(word, now, trie, list); ///CURRENT PROBLEM: WHEN it returns the list, and continues the thread of searching for more words (to eventually find aardwolf), it forgets this list, and starts another one over. \/(^^)\/
 	return 0;
@@ -67,12 +69,13 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	//printf("DID IT MAKE IT HERE\n");
 	//printf("curr is %c\n", curr[0]);
 	if(curr == NULL){
-		printf("curr is null?\n");
+		//printf("curr is null?\n");
+
 	}
 	else if(curr[1] == NULL){
-		printf("next letter is null\n");
+		//printf("next letter is null\n");
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
-			printf("this freq is greater than 0\n");
+			//printf("this freq is greater than 0\n");
 			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
 
@@ -80,18 +83,18 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	else{
 		if(trie!=NULL){
-			printf("trie isnt null\n");
+			//printf("trie isnt null\n");
 			if(get_letter(trie) == NULL){
-				printf("first letter\n");
+				//printf("first letter\n");
 				return autocomplete(list, get_next_trie(trie, (int) curr[0] - 97), &curr[0], data);
 			}
 			else{
-				printf("all others\n");
+				//printf("all others\n");
 				return autocomplete(list, get_next_trie(trie, (int) curr[1] - 97), &curr[1], data);
 			}
 		}
 		else{
-			printf("trie is null?\n");
+			//printf("trie is null?\n");
 		}
 	}
 	return 0;
@@ -123,7 +126,7 @@ int trie_starter(trie_t trie, char* filepath){
 		}
 		this[i]='\0';
 
-		printf("str: %s\n", this);
+		//printf("str: %s\n", this);
 
 		trie_insert(trie, this);
 	}
