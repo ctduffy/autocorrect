@@ -147,7 +147,7 @@ int main(){
 
 	char wo[2];
 
-	strcpy(wo, "aar");
+	strcpy(wo, "ab");
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = wo;
