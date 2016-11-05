@@ -65,7 +65,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
-	printf("continueing with: %s\n", word)
+	printf("continueing with: %s\n", word);
 	wordmaker(word, now, trie, list); 
 	return 0;
 }
