@@ -67,8 +67,6 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		linked_add(list, get_trie_frequency(now), thisone);
 		wordmaker(word, now, trie, list);
 	}
-
-	wordmaker(word, now, trie, list);
 	/*
 	if(get_trie_frequency(now) != NULL){
 		wordmaker(word, now, trie, list); 
