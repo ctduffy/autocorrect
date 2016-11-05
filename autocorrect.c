@@ -145,13 +145,15 @@ int main(){
 	int j = trie_starter(trie, "wordsfirst.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
-	char* wo = 'aa';
+	char wo[2];
+
+	strcopy(wo, "aa");
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = wo;
 	data->start = trie;
 
-	autocomplete(linked, trie, 'aa', data);
+	autocomplete(linked, trie, wo, data);
 
 	//linked_print(linked);
 
