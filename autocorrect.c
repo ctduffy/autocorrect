@@ -145,7 +145,7 @@ int main(){
 	int j = trie_starter(trie, "wordsfirst.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
-	seeze = strlen('aa');
+	int seeze = strlen('aa');
 
 
 	char* wo = malloc(seeze * sizeof(char));
