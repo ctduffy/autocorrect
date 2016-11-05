@@ -148,24 +148,24 @@ int trie_starter(trie_t trie, char* filepath){
 	return 0;
 }
 
-int main(){
-//int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
-//	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
-//	printf("word given: %s\n", argv[2]);
-//	printf("num of args given: %i\n", argc);
+//int main(){
+int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
+	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
+	printf("word given: %s\n", argv[2]);
+	printf("num of args given: %i\n", argc);
 	
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, "wordsEn.txt");
+	int j = trie_starter(trie, argv[1]);
 	//printf("successful trie start? 0 if success %d\n", j);
 
 
 
-	int leng = strlen("aba");
+	int leng = strlen(argv[2]);
 
 	char wo[leng];
 
-	strcpy(wo, "ab");
+	strcpy(wo, argv[2]);
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = wo;
