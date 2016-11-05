@@ -48,7 +48,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	nowword[size] = '\0';
 
-	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
+	while(nowword[0]!= '\0'){ //while the given word isnt zero, continue down the trie
 		if(get_letter(now) == NULL){
 			now = get_next_trie(now, (int) nowword[0] - 97);
 		}
