@@ -99,11 +99,15 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	return 0;
 }
-
-linked_t autocorrect(linked_t list, trie_t trie, char* curr, int maxld){
-
+/*
+suggest(){
+	startingMatrix = 
 }
 
+linked_t autocorrect(linked_t toSearch, trie_t suggestions, char* toCorrect, int maxEdit){
+
+}
+*/
 int trie_starter(trie_t trie, char* filepath){
 
 	FILE* fp;
@@ -128,15 +132,8 @@ int trie_starter(trie_t trie, char* filepath){
 	            line[j]='\0';
 	        }
 	    }
-
-		//printf("%s\n", line);
 		trie_insert(trie, line);
 	}
-
-	int cont = trie_contains(trie, "aardwolf");
-
-	printf("putin? %d\n", cont);
-
 	fclose(fp);
 	return 0;
 }
