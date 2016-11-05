@@ -38,12 +38,12 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 }
 
 int trie_search(linked_t list, trie_t trie, char* word){
-	trie_t now = trie;
+	trie_t now = trie; //now is another trie which i can loop through
 
-	int size = strlen(word);
-	char* nowword = (char *)malloc(sizeof(char)*size);
-	int i;
-	for(i=0; i<size; i++){
+	int size = strlen(word); //size of given word
+	char* nowword = (char *)malloc(sizeof(char)*size); //nowword is a new word that i will use
+	int i; 
+	for(i=0; i<size; i++){ //going through every letter in word and copying nowword to it (maybe this would have worked with strcpy??)
 		*(nowword+i) = word[i];
 	}
 	nowword[size] = '\0';
@@ -68,7 +68,6 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		wordmaker(word, now, trie, list); 
 	}
 	else{
-
 		wordmaker(word, now, trie, list); 
 	}
 	return 0;
