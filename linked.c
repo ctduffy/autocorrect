@@ -39,55 +39,37 @@ int linked_destroy(linked_t curr){
 
 int linked_add(linked_t list, int freq, char* wordle){
 	//printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
-	int size = sizeof(wordle);
-	char *str = (char *)malloc(sizeof(char)*size);
-	int i;
-	for(i=0;i<size;i++){
-		*(str+i) = wordle[i];
-	}
-
-	linked_t now = malloc(sizeof(struct linked_node));
-	now->word = str;
-	now->frequency = freq;
-	now->next = list->next;
-	list->next = now;
-	return 0;
-	/*
 	
 
 	if(list == NULL){
 		return -1;
 	}
 	else if(list->next == NULL){//if this is the last thing in the list
-		linked_t now = malloc(sizeof(struct linked_node));
-
-		char tword[100];
-		
-		int i = 0;
-		while(word[i] != '\0'){
-			tword[i] = word[i];
-			i++;
+	
+		int size = sizeof(wordle);
+		char *str = (char *)malloc(sizeof(char)*size);
+		int i;
+		for(i=0;i<size;i++){
+			*(str+i) = wordle[i];
 		}
-		tword[i]='\0';
-		now->word = tword;
+		linked_t now = malloc(sizeof(struct linked_node));
+		now->word = str;
 		now->frequency = freq;
+		now->next = list->next;
 		list->next = now;
-		now->next = NULL;
 		return 0;
 	}
 	else if(list->frequency > freq){// if this node has a higher frequency than freq
 		if(freq >= list->next->frequency){ //if the node after this one has a lower frequency than freq
-			linked_t now = malloc(sizeof(struct linked_node));
-
-			char tword[100];
-			
-			int i = 0;
-			while(word[i] != '\0'){
-				tword[i] = word[i];
-				i++;
+			int size = sizeof(wordle);
+			char *str = (char *)malloc(sizeof(char)*size);
+			int i;
+			for(i=0;i<size;i++){
+				*(str+i) = wordle[i];
 			}
-			tword[i]='\0';
-			now->word = tword;
+			linked_t now = malloc(sizeof(struct linked_node));
+			now->word = str;
+			now->frequency = freq;
 			now->next = list->next;
 			list->next = now;
 			return 0;
@@ -96,7 +78,6 @@ int linked_add(linked_t list, int freq, char* wordle){
 	else{
 		return linked_add(list->next, freq, word);
 	}
-	*/
 }
 
 void linked_print(linked_t list){
