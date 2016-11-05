@@ -178,6 +178,8 @@ int main(){
 	linked_add(linked, 1, second);
 	linked_add(linked, 3, third);
 	linked_add(linked, 2, first);
+	linked_add(linked, 5, first);
+	linked_add(linked, 1, first);
 	
 	linked_print(linked);
 
