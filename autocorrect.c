@@ -32,7 +32,7 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 	    nex[len] = n; //add the new letter onto nex
 	    nex[len+1] = '\0'; //then add a end of string character onto it
 	    if(get_letter(get_next_trie(now, i)) != NULL){ //then if the letter of the next trie of the letter just added isnt null
-			printf("adding this letter, supposedly works: %c\n", get_letter(get_next_trie(now, i)));
+			//printf("adding this letter, supposedly works: %c\n", get_letter(get_next_trie(now, i)));
 			trie_search(list, trie, nex); //search for it with trie search
 	    }
 	}
