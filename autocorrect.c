@@ -68,9 +68,9 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	if(get_trie_frequency(now) != NULL){
 		wordmaker(word, now, trie, list); 
 	}
-	int i;
-	for(i=0; i<26; i++){
-		if(get_next_trie(now, i) != NULL){
+	int k;
+	for(k=0; k<26; k++){
+		if(get_next_trie(now, k) != NULL){
 			wordmaker(word, now, trie, list);
 		}
 	}
