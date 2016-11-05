@@ -56,22 +56,20 @@ int trie_search(linked_t list, trie_t trie, char* word){
 			now = get_next_trie(now, (int) nowword[1] - 97); //move down the trie to that
 			nowword = &nowword[1];//and set nowword to the next letter in nowword
 		}
-		else{ //else return 0
-			//nowword = &nowword[1];
-			return 0;
-		}
 	}
 	if(get_trie_frequency(now) > 0){
 		printf("%s\n", word);
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
+	wordmaker(word, now, trie, list);
+	/*
 	if(get_trie_frequency(now) != NULL){
 		wordmaker(word, now, trie, list); 
 	}
 	else{
 		wordmaker(word, now, trie, list); 
-	}
+	}*/
 	return 0;
 }
 
