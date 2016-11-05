@@ -40,7 +40,9 @@ int linked_destroy(linked_t curr){
 int linked_add(linked_t list, int freq, char* word){
 	//printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
 	linked_t now = malloc(sizeof(struct linked_node));
-	now->word = word;
+	char* tword = malloc(sizeof(word));
+	tword = word;
+	now->word = tword;
 	now->frequency = freq;
 	now->next = list->next;
 	list->next = now;
