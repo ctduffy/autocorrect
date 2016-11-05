@@ -145,12 +145,7 @@ int main(){
 	int j = trie_starter(trie, "wordsfirst.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
-	int seeze = strlen('aa');
-
-
-	char* wo = malloc(seeze * sizeof(char));
-
-	wo = 'aa';
+	char* wo = 'aa';
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = wo;
@@ -162,7 +157,6 @@ int main(){
 
 	
 	free(data);
-	free(wo);
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
 	
