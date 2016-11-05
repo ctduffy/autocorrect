@@ -38,7 +38,7 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* word){
-	printf("searching through list, on word: %s\n", list->word);
+	printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
 	if(list == NULL){
 		return -1;
 	}
