@@ -177,7 +177,6 @@ int main(){
 	linked_add(linked, 1, first);
 	linked_add(linked, 1, second);
 	linked_add(linked, 3, third);
-	first[0]= 'o';
 	linked_add(linked, 2, first);
 	
 	linked_print(linked);
