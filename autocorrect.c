@@ -39,7 +39,6 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 
 int trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
-	char* nowword = word;
 
 	int size = strlen(word);
 	char* nowword = (char *)malloc(sizeof(char)*size);
