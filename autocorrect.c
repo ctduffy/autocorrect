@@ -46,17 +46,18 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	for(i=0; i<size; i++){ //going through every letter in word and copying nowword to it (maybe this would have worked with strcpy??)
 		*(nowword+i) = word[i];
 	}
-	nowword[size] = '\0';
+	nowword[size] = '\0';//set end of string to null terminator
+
 	while(nowword[0]!= '\0'){ //while the given word isnt zero, continue down the trie
-		if(get_letter(now) == NULL){
-			now = get_next_trie(now, (int) nowword[0] - 97);
+		if(get_letter(now) == NULL){ //if the current letter in the trie is null
+			now = get_next_trie(now, (int) nowword[0] - 97); //move down the trie one letter, to the first letter of nowword
 		}
-		else if(get_letter(get_next_trie(now, (int) nowword[1] - 97)) != NULL){
-			now = get_next_trie(now, (int) nowword[1] - 97);
-			nowword = &nowword[1];
+		else if(get_letter(get_next_trie(now, (int) nowword[1] - 97)) != NULL){ //else if the trie node at the next letter in nowword isnt null
+			now = get_next_trie(now, (int) nowword[1] - 97); //move down the trie to that
+			nowword = &nowword[1];//and set nowword to the next letter in nowword
 		}
-		else{
-			nowword = &nowword[1];
+		else{ //else do nothing
+			//nowword = &nowword[1];
 		}
 	}
 	if(get_trie_frequency(now) > 0){
