@@ -111,7 +111,7 @@ linked_t autocorrect(linked_t toSearch, trie_t suggestions, char* toCorrect, int
 int trie_starter(trie_t trie, char* filepath){
 
 	FILE* fp;
-	char line[255];
+	char line[100];
 
 	fp = fopen(filepath, "r");
 
