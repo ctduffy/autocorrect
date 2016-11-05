@@ -71,6 +71,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 			now->frequency = freq;
 			now->next = list->next;
 			list->next = now;
+			printf("%s\n", str);
 			return 0;
 		}
 		else{
