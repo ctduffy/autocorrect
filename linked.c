@@ -23,7 +23,8 @@ int get_frequency(linked_t this){
 
 linked_t linked_create(){
 	linked_t newlinked = malloc(sizeof(struct linked_node));
-	newlinked->word = NULL;
+	newlinked->word = '\0';
+	//newlinked->word = NULL;
 	newlinked->frequency = INT_MAX;
 	newlinked->next = NULL;
 	return newlinked;
