@@ -40,6 +40,15 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 int trie_search(linked_t list, trie_t trie, char* word){
 	trie_t now = trie;
 	char* nowword = word;
+
+	int size = strlen(word);
+	char* nowword = (char *)malloc(sizeof(char)*size);
+	int i;
+	for(i=0; i<size; i++){
+		*(nowword+i) = word[i];
+	}
+	nowword[size] = '\0';
+
 	while(nowword[0]!= NULL){
 		if(get_letter(now) == NULL){
 			now = get_next_trie(now, (int) nowword[0] - 97);
@@ -51,7 +60,6 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		else{
 			nowword = &nowword[1];
 		}
-		
 	}
 	if(get_trie_frequency(now) > 0){
 		printf("%s\n", word);
