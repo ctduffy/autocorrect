@@ -39,6 +39,14 @@ int linked_destroy(linked_t curr){
 
 int linked_add(linked_t list, int freq, char* word){
 	//printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
+	linked_t now = malloc(sizeof(struct linked_node));
+	now->word = word;
+	now->frequency = freq;
+	now->next = list->next;
+	list->next = now;
+	/*
+	
+
 	if(list == NULL){
 		return -1;
 	}
@@ -80,6 +88,7 @@ int linked_add(linked_t list, int freq, char* word){
 	else{
 		return linked_add(list->next, freq, word);
 	}
+	*/
 }
 
 void linked_print(linked_t list){
