@@ -67,9 +67,9 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	if(get_trie_frequency(now) != NULL){
 		wordmaker(word, now, trie, list); 
 	}
-	else if(get_letter(now) == word[size]){
+	else{
+
 		wordmaker(word, now, trie, list); 
-	
 	}
 	return 0;
 }
@@ -152,7 +152,7 @@ int main(){
 	
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
-	int j = trie_starter(trie, "wordssecond.txt");
+	int j = trie_starter(trie, "wordsfirst.txt");
 	//printf("successful trie start? 0 if success %d\n", j);
 
 	char wo[2];
