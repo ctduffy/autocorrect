@@ -116,8 +116,8 @@ int trie_starter(trie_t trie, char* filepath){
 	fp = fopen(filepath, "r");
 
 	while(fgets(line, sizeof(line), fp) != NULL){ //takes in file line by line, loading word into variable line, until it reaches a new line
-		strtok(line, "\n"); //removes \n from the end of the string that is taken in by fgets
 		strtok(line, "\r");
+		strtok(line, "\n"); //removes \n from the end of the string that is taken in by fgets
 		trie_insert(trie, line);
 	}
 	fclose(fp);
