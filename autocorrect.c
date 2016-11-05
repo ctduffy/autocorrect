@@ -150,7 +150,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	data->word = argv[2];
 	data->start = trie;
 
-	autocomplete(linked, trie, data->word, data);
+	autocomplete(linked, trie, argv[2], data);
 
 	//linked_print(linked);
 
