@@ -95,7 +95,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 }
 
 void linked_print(linked_t list){
-	printf("made it here\n");
+	//printf("made it here\n");
 	if(list != NULL){
 		if(list->word != NULL){
 			printf("this word is: %s, its freq is: %d\n", list->word, list->frequency);

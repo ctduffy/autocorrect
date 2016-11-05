@@ -143,7 +143,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 	int j = trie_starter(trie, "wordsfirst.txt");
-	printf("successful trie start? 0 if success %d\n", j);
+	//printf("successful trie start? 0 if success %d\n", j);
 
 	data_t data = malloc(sizeof(struct curr_data));
 	data->word = "aard";
@@ -151,7 +151,7 @@ int main(){ //To have this function take command line arguments: do: int main(in
 
 	autocomplete(linked, trie, "aardwo", data);
 
-	linked_print(linked);
+	//linked_print(linked);
 
 	
 	free(data);
