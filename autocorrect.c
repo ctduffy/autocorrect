@@ -76,7 +76,8 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 		//printf("next letter is null\n");
 		if(get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != 0 && get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)) != NULL){
 			//printf("this freq is greater than 0\n");
-			return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
+			printf("%c", curr[0]);
+			//return linked_add(list, get_trie_frequency(get_next_trie(trie, (int) curr[0] - 97)), data->word);
 		}
 
 		return trie_search(list, data->start, data->word);
