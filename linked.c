@@ -64,6 +64,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 			int i;
 			for(i=0;i<size;i++){
 				*(str+i) = wordle[i];
+				printf("str:%s, worldld: %s\n", str, wordle);
 			}
 			linked_t now = malloc(sizeof(struct linked_node));
 			printf("str  %s\n", str);
