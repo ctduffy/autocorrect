@@ -32,6 +32,7 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 	    nex[len] = n;
 	    nex[len+1] = '\0';
 	    if(get_letter(get_next_trie(now, i)) != NULL){
+	    	printf("nex is%s\n", nex);
 			trie_search(list, trie, nex);
 	    }
 	}
