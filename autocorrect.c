@@ -47,6 +47,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		*(nowword+i) = word[i];
 	}
 	nowword[size] = '\0';
+	printf("%s\n",nowword );
 
 	while(nowword[0]!= '\0'){ //while the given word isnt zero, continue down the trie
 		if(get_letter(now) == NULL){
@@ -65,7 +66,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
-	printf("continueing with: %s\n", word);
+	//printf("continueing with: %s\n", word);
 	wordmaker(word, now, trie, list); 
 	return 0;
 }
