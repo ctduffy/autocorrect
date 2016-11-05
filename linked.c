@@ -6,7 +6,7 @@
 
  
 struct linked_node{
-	char word[50];
+	char* word;
 	int frequency;
 	linked_t next;
 };
@@ -23,8 +23,7 @@ int get_frequency(linked_t this){
 
 linked_t linked_create(){
 	linked_t newlinked = malloc(sizeof(struct linked_node));
-	newlinked->word[0] = '\0';
-	//newlinked->word = NULL;
+	newlinked->word = NULL;
 	newlinked->frequency = INT_MAX;
 	newlinked->next = NULL;
 	return newlinked;
@@ -38,18 +37,14 @@ int linked_destroy(linked_t curr){
 	return 0;
 }
 
-int linked_add(linked_t list, int freq, char* word){
+int linked_add(linked_t list, int freq, char* wordle){
 	//printf("searching through list, on word: %s, or maybe this %s? \n", list->word, list->next->word);
 	linked_t now = malloc(sizeof(struct linked_node));
-	int i;
-	while(word[i-1] != '\0'){
-		now->word[i] = word[i];
-		i++;
-	}
+	now->word = malloc(sizeof(wordle));
+	now->word = wordle;
 	now->frequency = freq;
 	now->next = list->next;
 	list->next = now;
-	word[0] = 'r';
 	return 0;
 	/*
 	
