@@ -38,11 +38,11 @@ int linked_destroy(linked_t curr){
 }
 
 int linked_add(linked_t list, int freq, char* wordle){
+	linked_print(list);
 	if(list == NULL){
 		return -1;
 	}
 	else if(list->next == NULL){//if this is the last thing in the list
-	
 		int size = sizeof(wordle);
 		char *str = (char *)malloc(sizeof(char)*size);
 		int i;
