@@ -74,6 +74,9 @@ int linked_add(linked_t list, int freq, char* wordle){
 			list->next = now;
 			return 0;
 		}
+		else{
+			return linked_add(list->next, freq, wordle);
+		}
 	}
 	else{
 		return linked_add(list->next, freq, wordle);
