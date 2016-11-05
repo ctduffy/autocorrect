@@ -49,11 +49,11 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	nowword[size] = '\0';//set end of string to null terminator
 
-	while(nowword[0]!= '\0'){ //while the given word isnt zero, continue down the trie
+	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
 		if(get_letter(now) == NULL){ //if the current letter in the trie is null
 			now = get_next_trie(now, (int) nowword[0] - 97); //move down the trie one letter, to the first letter of nowword
 		}
-		else if(nowword[1] == '\0'){
+		else if(nowword[1] == NULL){
 
 		}
 		else if(get_letter(get_next_trie(now, (int) nowword[1] - 97)) != NULL){ //else if the trie node at the next letter in nowword isnt null
