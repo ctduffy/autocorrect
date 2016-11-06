@@ -131,7 +131,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 	if(get_trie_frequency(trie) > 0){
 		int alen = strlen(check);
 		if(DL(check, wording, alen, worlen) <= maxEdit){
-			linked_add(linked, wording, get_trie_frequency(trie));
+			linked_add(linked, get_trie_frequency(trie), wording);
 		}
 	}
 
