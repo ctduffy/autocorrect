@@ -39,6 +39,7 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 }
 
 int trie_search(linked_t list, trie_t trie, char* word){
+	printf("%s\n", word);
 	trie_t now = trie; //now is another trie which i can loop through
 
 	int size = strlen(word); //size of given word
