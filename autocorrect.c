@@ -115,15 +115,54 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	return 0;
 }
-/*
-suggest(){
-	startingMatrix = 
+
+int autocorrect(linked_t suggestions, trie_t toSearch, char* toCorrect, int maxEdit){
+	int len = strlen(toCorrect);
+	int startingMatrix[len]; //NTS: should this be startingMatrix[len][len+maxEdit] ?? becuase it is a matrix, and the max numer of rows is the string to be corrected plus the edit distance right?
+	int i;
+	for(i = 0; i < len; i++){
+		startingMatrix[i] = i;
+	}
+	for(i = 0; i < 26; i++){
+		if(get_next_trie(get_next_trie(toSearch, toCorrect[0]), i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
+			delve(startingMatrix, get_next_trie(get_next_trie(toSearch, toCorrect[0]), i), "", len, toCorrect, maxEdit, suggestions);
+		}
+	}
 }
 
-linked_t autocorrect(linked_t toSearch, trie_t suggestions, char* toCorrect, int maxEdit){
+int delve(int** matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* toCorrect, int maxEdit, linked_t suggestions){
+	newString = iterativeBuild + getLetter(nodeLetter);
+	matrixNew[len]; //array of what? 2d array?? also how to bring len into this function??
+	int nstrlen = strlen(newString);
+	int cha;
+	int cost;
+	for(cha = 0; cha < len; cha++){
+		//need to figure out proper paranthesis placement in below line
+		if((newString[nstrlen] == toCorrect[cha]) || (cha > 1 && newString[nstrlen - 1] == toCorrect[cha-1] && newString[nstrlen - 2] == toCorrect[cha])){
+			cost = 0;
+		}
+		else{
+			cost = 1;
+		}
+		//NTS: bring min function over from ldedit. also look at those functions to see how they compare
+		matrixNew[cha] = min(matrix[cha] + 1, matrixNew[cha - 1] + 1, matrix[cha - 1] + cost);
+	}
+	if(min(matrixNew) > maxEdit){
 
+	}
+	else{
+		if(get_trie_frequency(nodeLetter) > 0){//add more here
+			linked_add(suggestions, get_trie_frequency(nodeLetter), newString);
+		}
+		for(i = 0; i < 26; i++){
+			if(get_next_trie(nodeLetter, i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
+				delve(matrixNew, get_next_trie(nodeLetter, i), newString, len, toCorrect, maxEdit, suggestions);
+			}
+		}
+
+	}
 }
-*/
+
 int trie_starter(trie_t trie, char* filepath){
 
 	FILE* fp;
@@ -182,7 +221,11 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	data->word = wo;
 	data->start = trie;
 
-	autocomplete(linked, trie, wo, data);
+	//autocomplete(linked, trie, wo, data);
+
+	int maxEdit = 1;
+
+	autocorrect(linked, trie, wo, maxEdit);
 
 	linked_print(linked);
 
