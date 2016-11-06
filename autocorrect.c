@@ -148,7 +148,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			*(new+worlen) = next;
 			new[worlen + 1] = '\0';
 
-			finder(linked, yo, maxEdit, &new, check);
+			finder(linked, yo, maxEdit, new, check);
 		}
 	}
 	return 0;
