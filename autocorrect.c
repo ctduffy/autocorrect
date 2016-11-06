@@ -126,32 +126,52 @@ put each word into the linked with its frequency if its edit distance is less th
 */
 
 int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check){
-	int worlen = strlen(wording);
-	int i;
-	if(get_trie_frequency(trie) > 0){
-		int alen = strlen(check);
-		if(DL(check, wording, alen, worlen) <= maxEdit){
-			linked_add(linked, get_trie_frequency(trie), wording);
-		}
-	}
-
-	for(i = 0; i<26; i++){
-		char next = get_letter(get_next_trie(trie, i));
-		trie_t yo = get_next_trie(trie, i);
-		if(next != NULL){
-			char* new[worlen + 1];
-			int j;
-			for(j=0;j<worlen;j++){
-				*(new+j) = wording[j];
+	if(wording != '\0'){
+		int worlen = strlen(wording);
+		int i;
+		if(get_trie_frequency(trie) > 0){
+			int alen = strlen(check);
+			if(DL(check, wording, alen, worlen) <= maxEdit){
+				linked_add(linked, get_trie_frequency(trie), wording);
 			}
-
-			*(new+worlen) = next;
-			new[worlen + 1] = '\0';
-
-			finder(linked, yo, maxEdit, new, check);
 		}
+
+		for(i = 0; i<26; i++){
+			char next = get_letter(get_next_trie(trie, i));
+			trie_t yo = get_next_trie(trie, i);
+			if(next != NULL){
+				char* new[worlen + 1];
+				int j;
+				for(j=0;j<worlen;j++){
+					*(new+j) = wording[j];
+				}
+
+				*(new+worlen) = next;
+				new[worlen + 1] = '\0';
+
+				finder(linked, yo, maxEdit, new, check);
+			}
+		}
+		return 0;
 	}
-	return 0;
+	else{
+		int i;
+		if(get_trie_frequency(trie) > 0){
+			int alen = strlen(check);
+			if(DL(check, wording, alen, 0) <= maxEdit){
+				linked_add(linked, get_trie_frequency(trie), wording);
+			}
+		}
+		for(i = 0; i<26; i++){
+			char next = get_letter(get_next_trie(trie, i));
+			trie_t yo = get_next_trie(trie, i);
+			if(next != NULL){
+				char* new[1] = {nex, '\0'};
+				finder(linked, yo, maxEdit, new, check);
+			}
+		}
+		return 0;
+	}
 }
 
 
