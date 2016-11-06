@@ -52,6 +52,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	nowword[size] = '\0';//set end of string to null terminator
 
 	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
+		printf("%s\n", nowword);
 		if(get_letter(now) == NULL){ //if the current letter in the trie is null
 			now = get_next_trie(now, (int) nowword[0] - 97); //move down the trie one letter, to the first letter of nowword
 		}
