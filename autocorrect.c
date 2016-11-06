@@ -116,23 +116,20 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	return 0;
 }
 
-int autocorrect(linked_t suggestions, trie_t toSearch, char* toCorrect, int maxEdit){
-	int len = strlen(toCorrect);
-	int startingMatrix[len]; //NTS: should this be startingMatrix[len][len+maxEdit] ?? becuase it is a matrix, and the max numer of rows is the string to be corrected plus the edit distance right?
-	int i;
-	for(i = 0; i < len; i++){
-		startingMatrix[i] = i;
+int min(int a, int b, int c){
+	int small = a;
+	if(small>b){
+		small = b;
 	}
-	for(i = 0; i < 26; i++){
-		if(get_next_trie(get_next_trie(toSearch, toCorrect[0]), i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
-			delve(startingMatrix, get_next_trie(get_next_trie(toSearch, toCorrect[0]), i), "", len, toCorrect, maxEdit, suggestions);
-		}
+	if(small>c){
+		small = c;
 	}
+	return small;
 }
 
 int delve(int** matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* toCorrect, int maxEdit, linked_t suggestions){
-	newString = iterativeBuild + getLetter(nodeLetter);
-	matrixNew[len]; //array of what? 2d array?? also how to bring len into this function??
+	newString = iterativeBuild + get_letter(nodeLetter);
+	int matrixNew[len]; //array of what? 2d array??
 	int nstrlen = strlen(newString);
 	int cha;
 	int cost;
@@ -154,12 +151,27 @@ int delve(int** matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* 
 		if(get_trie_frequency(nodeLetter) > 0){//add more here
 			linked_add(suggestions, get_trie_frequency(nodeLetter), newString);
 		}
+		int i;
 		for(i = 0; i < 26; i++){
 			if(get_next_trie(nodeLetter, i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
 				delve(matrixNew, get_next_trie(nodeLetter, i), newString, len, toCorrect, maxEdit, suggestions);
 			}
 		}
 
+	}
+}
+
+int autocorrect(linked_t suggestions, trie_t toSearch, char* toCorrect, int maxEdit){
+	int len = strlen(toCorrect);
+	int startingMatrix[len]; //NTS: should this be startingMatrix[len][len+maxEdit] ?? becuase it is a matrix, and the max numer of rows is the string to be corrected plus the edit distance right?
+	int i;
+	for(i = 0; i < len; i++){
+		startingMatrix[i] = i;
+	}
+	for(i = 0; i < 26; i++){
+		if(get_next_trie(get_next_trie(toSearch, toCorrect[0]), i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
+			delve(startingMatrix, get_next_trie(get_next_trie(toSearch, toCorrect[0]), i), "", len, toCorrect, maxEdit, suggestions);
+		}
 	}
 }
 
