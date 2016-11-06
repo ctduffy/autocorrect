@@ -17,6 +17,7 @@ struct curr_data{
 };
 
 void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
+	printf("wordmaker w %s\n", word);
 	int i;
 	//char* nexlist[26];
 	for(i = 0; i<26; i++){//for each letter
@@ -39,7 +40,7 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 }
 
 int trie_search(linked_t list, trie_t trie, char* word){
-	printf("%s\n", word);
+	printf("trie search w %s\n", word);
 	trie_t now = trie; //now is another trie which i can loop through
 
 	int size = strlen(word); //size of given word
@@ -66,7 +67,6 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		//printf("%s\n", word);
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
-		
 	}
 	wordmaker(word, now, trie, list);
 	/*
