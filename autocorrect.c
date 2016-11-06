@@ -166,8 +166,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			char next = get_letter(get_next_trie(trie, i));
 			trie_t yo = get_next_trie(trie, i);
 			if(next != NULL){
-				char* new[1] = {next, '\0'};
-				finder(linked, yo, maxEdit, new, check);
+				finder(linked, yo, maxEdit, next, check);
 			}
 		}
 		return 0;
