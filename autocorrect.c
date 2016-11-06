@@ -157,7 +157,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 
 int DLcorrect(linked_t linked, trie_t trie, char* word, int maxEdit, data_t data){
 	char* thi = '';
-	finder(linked, trie, maxEdit, thi, word)
+	finder(linked, trie, maxEdit, thi, word);
 	return 0;
 }
 
