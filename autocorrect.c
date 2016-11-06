@@ -167,7 +167,8 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			trie_t yo = get_next_trie(trie, i);
 			if(next != NULL){
 				char* nchar = malloc(sizeof(char));
-				*nchar = next;			
+				*nchar = next;
+				*(nchar+1) = '\0';		
 				finder(linked, yo, maxEdit, nchar, check);
 			}
 		}
