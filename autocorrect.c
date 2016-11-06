@@ -127,8 +127,17 @@ int min(int a, int b, int c){
 	return small;
 }
 
-int delve(int** matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* toCorrect, int maxEdit, linked_t suggestions){
-	newString = iterativeBuild + get_letter(nodeLetter);
+int delve(int* matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* toCorrect, int maxEdit, linked_t suggestions){
+	int leng = strlen(iterativeBuild) + 1;
+
+	char* newString[leng]; = iterativeBuild + get_letter(nodeLetter);
+	int j;
+	for(j = 0; j < leng-1; j++){
+		newString[j] = iterativeBuild[j];
+	}
+	newString[leng-1] = get_letter(nodeLetter);
+	newString[leng] = '\0';
+
 	int matrixNew[len]; //array of what? 2d array??
 	int nstrlen = strlen(newString);
 	int cha;
@@ -142,7 +151,7 @@ int delve(int** matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* 
 			cost = 1;
 		}
 		//NTS: bring min function over from ldedit. also look at those functions to see how they compare
-		matrixNew[cha] = min(matrix[cha] + 1, matrixNew[cha - 1] + 1, matrix[cha - 1] + cost);
+		matrixNew[cha] = min(*matrix[cha] + 1, *matrixNew[cha - 1] + 1, *matrix[cha - 1] + cost);
 	}
 	if(min(matrixNew) > maxEdit){
 
