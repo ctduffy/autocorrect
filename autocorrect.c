@@ -153,10 +153,19 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
 	printf("word given: %s\n", argv[2]);
 	printf("num of args given: %i\n", argc);
+	if(argc < 3){
+		printf("didnt give enough arguments. please try again.\n");
+		return -1;
+	}
 	
 	linked_t linked = linked_create();
 	trie_t trie = trie_init();
 	int j = trie_starter(trie, argv[1]);
+	if(j!=0){
+		printf("something is wrong with the given file\n");
+		return -1;
+	}
+
 	//printf("successful trie start? 0 if success %d\n", j);
 
 
@@ -179,6 +188,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	free(data);
 	int a = linked_destroy(linked);
 	int b = trie_destroy(trie);
+	return 0;
 	
 }
 
