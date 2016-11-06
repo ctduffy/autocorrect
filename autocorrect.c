@@ -115,74 +115,51 @@ int autocomplete(linked_t list, trie_t trie, char* curr, data_t data){
 	}
 	return 0;
 }
+/*
+easier way:
 
-int min(int a, int b, int c){
-	int small = a;
-	if(small>b){
-		small = b;
-	}
-	if(small>c){
-		small = c;
-	}
-	return small;
-}
+get every word in the trie that has length +- maxEdit
+put each word into the linked with its frequency if its edit distance is less than or equal to maxEdit
 
-int delve(int* matrix, trie_t nodeLetter, char* iterativeBuild, int len, char* toCorrect, int maxEdit, linked_t suggestions){
-	int leng = strlen(iterativeBuild) + 1;
 
-	char* newString[leng]; = iterativeBuild + get_letter(nodeLetter);
-	int j;
-	for(j = 0; j < leng-1; j++){
-		newString[j] = iterativeBuild[j];
-	}
-	newString[leng-1] = get_letter(nodeLetter);
-	newString[leng] = '\0';
+*/
 
-	int matrixNew[len]; //array of what? 2d array??
-	int nstrlen = strlen(newString);
-	int cha;
-	int cost;
-	for(cha = 0; cha < len; cha++){
-		//need to figure out proper paranthesis placement in below line
-		if((newString[nstrlen] == toCorrect[cha]) || (cha > 1 && newString[nstrlen - 1] == toCorrect[cha-1] && newString[nstrlen - 2] == toCorrect[cha])){
-			cost = 0;
-		}
-		else{
-			cost = 1;
-		}
-		//NTS: bring min function over from ldedit. also look at those functions to see how they compare
-		matrixNew[cha] = min(*matrix[cha] + 1, *matrixNew[cha - 1] + 1, *matrix[cha - 1] + cost);
-	}
-	if(min(matrixNew) > maxEdit){
-
-	}
-	else{
-		if(get_trie_frequency(nodeLetter) > 0){//add more here
-			linked_add(suggestions, get_trie_frequency(nodeLetter), newString);
-		}
-		int i;
-		for(i = 0; i < 26; i++){
-			if(get_next_trie(nodeLetter, i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
-				delve(matrixNew, get_next_trie(nodeLetter, i), newString, len, toCorrect, maxEdit, suggestions);
-			}
-		}
-
-	}
-}
-
-int autocorrect(linked_t suggestions, trie_t toSearch, char* toCorrect, int maxEdit){
-	int len = strlen(toCorrect);
-	int startingMatrix[len]; //NTS: should this be startingMatrix[len][len+maxEdit] ?? becuase it is a matrix, and the max numer of rows is the string to be corrected plus the edit distance right?
+int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check){
+	int worlen = strlen(wording);
 	int i;
-	for(i = 0; i < len; i++){
-		startingMatrix[i] = i;
-	}
-	for(i = 0; i < 26; i++){
-		if(get_next_trie(get_next_trie(toSearch, toCorrect[0]), i) != NULL){ //for each valid next letter in the current trie node, "delve" into it
-			delve(startingMatrix, get_next_trie(get_next_trie(toSearch, toCorrect[0]), i), "", len, toCorrect, maxEdit, suggestions);
+	if(get_trie_frequency(trie) > 0){
+		int alen = strlen(check);
+		if(DL(check, wording, alen, worlen) <= maxEdit){
+			linked_add(linked, wording, get_trie_frequency(trie));
 		}
 	}
+
+	for(i = 0; i<26; i++){
+		char next = get_letter(get_next_trie(trie, i));
+		trie_t yo = get_next_trie(trie, i);
+		if(next != NULL){
+			char* new[worlen + 1];
+			int j;
+			for(j=0;j<worlen;j++){
+				new[j] = wording[j];
+			}
+			
+			new[worlen] = next;
+			new[worlen + 1] = '\0';
+
+			finder(linked, yo, maxEdit, new, check);
+		}
+	}
+	return 0;
 }
+
+
+int DLcorrect(linked_t linked, trie_t trie, char* word, int maxEdit, data_t data){
+	char* thi = '';
+	finder(linked, trie, maxEdit, thi, word)
+	return 0;
+}
+
 
 int trie_starter(trie_t trie, char* filepath){
 
@@ -243,6 +220,8 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	data->start = trie;
 
 	//autocomplete(linked, trie, wo, data);
+
+	DLcorrect(linked, trie, wo, data);
 
 	int maxEdit = 1;
 
