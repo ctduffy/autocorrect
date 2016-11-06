@@ -140,7 +140,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			char next = get_letter(get_next_trie(trie, i));
 			trie_t yo = get_next_trie(trie, i);
 			if(next != NULL){
-				char* new[worlen + 1];
+				char new[worlen + 1];
 				int j;
 				for(j=0;j<worlen;j++){
 					*(new+j) = wording[j];
