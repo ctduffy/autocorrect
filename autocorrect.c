@@ -17,7 +17,6 @@ struct curr_data{
 };
 
 void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
-	printf("wordmaker w %s\n", word);
 	int i;
 	//char* nexlist[26];
 	for(i = 0; i<26; i++){//for each letter
@@ -40,7 +39,6 @@ void wordmaker(char* word, trie_t now, trie_t trie, linked_t list){
 }
 
 int trie_search(linked_t list, trie_t trie, char* word){
-	printf("trie search w %s\n", word);
 	trie_t now = trie; //now is another trie which i can loop through
 
 	int size = strlen(word); //size of given word
@@ -52,7 +50,6 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	nowword[size] = '\0';//set end of string to null terminator
 
 	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
-		printf("%s\n", nowword);
 		if(get_letter(now) == NULL){ //if the current letter in the trie is null
 			now = get_next_trie(now, (int) nowword[0] - 97); //move down the trie one letter, to the first letter of nowword
 		}
