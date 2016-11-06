@@ -142,10 +142,10 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			char* new[worlen + 1];
 			int j;
 			for(j=0;j<worlen;j++){
-				new[j] = wording[j];
+				*(new+j) = wording[j];
 			}
 
-			new[worlen] = next;
+			*(new+worlen) = next;
 			new[worlen + 1] = '\0';
 
 			finder(linked, yo, maxEdit, new, check);
@@ -156,7 +156,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 
 
 int DLcorrect(linked_t linked, trie_t trie, char* word, int maxEdit, data_t data){
-	char* thi = '';
+	char* thi = '\0';
 	finder(linked, trie, maxEdit, thi, word);
 	return 0;
 }
@@ -222,7 +222,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 
 	//autocomplete(linked, trie, wo, data);
 
-	DLcorrect(linked, trie, wo, data);
+	DLcorrect(linked, trie, wo, 2, data);
 
 	int maxEdit = 1;
 
