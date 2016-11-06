@@ -3,6 +3,7 @@
 #include <string.h>
 #include "trie.h"
 #include "linked.h"
+#include "leven.h"
 
 /////run with:   gcc -g -std=c99 linked.c trie.c autocorrect.c -o rt
 
@@ -143,7 +144,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			for(j=0;j<worlen;j++){
 				new[j] = wording[j];
 			}
-			
+
 			new[worlen] = next;
 			new[worlen + 1] = '\0';
 
