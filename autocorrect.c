@@ -123,6 +123,9 @@ get every word in the trie that has length +- maxEdit
 put each word into the linked with its frequency if its edit distance is less than or equal to maxEdit
 
 
+how to improve this: make it trim branches if they are impossible: check if the first x number of letters are within a certain edit distance of the first x letters, and clear the branch if it isnt
+
+
 */
 
 int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check){
@@ -244,7 +247,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 
 	//autocomplete(linked, trie, wo, data);
 
-	int maxEdit = 2;
+	int maxEdit = 1;
 	DLcorrect(linked, trie, wo, maxEdit, data);
 	//autocorrect(linked, trie, wo, maxEdit);
 
