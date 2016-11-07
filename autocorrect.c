@@ -177,7 +177,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 				finder(linked, yo, maxEdit, nchar, check);
 			}
 		}
-		free()
+		
 		return 0;
 	}
 }
