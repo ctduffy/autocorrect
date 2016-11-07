@@ -221,9 +221,9 @@ int trie_starter(trie_t trie, char* filepath){
 int main(int argc, char** argv){ //To have this function take command line arguments: do: int main(int argc, char** argv) 
 	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
 	printf("word given: %s\n", argv[2]);
-	printf("maximum edit distance: %d\n", (int) argv[3]);
+	//printf("maximum edit distance: %d\n", (int) argv[3]);
 	printf("num of args given: %i\n", argc);
-	if(argc < 4){
+	if(argc < 3){
 		printf("didnt give enough arguments. please try again.\n");
 		return -1;
 	}
@@ -252,7 +252,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 
 	//autocomplete(linked, trie, wo, data);
 
-	int maxEdit = (int)argv[3];
+	int maxEdit = 2;
 	DLcorrect(linked, trie, wo, maxEdit);
 	//autocorrect(linked, trie, wo, maxEdit);
 
