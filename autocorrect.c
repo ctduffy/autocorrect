@@ -250,11 +250,11 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	data->word = wo;
 	data->start = trie;
 
-	//autocomplete(linked, trie, wo, data);
+	autocomplete(linked, trie, wo, data);
 
 	int maxEdit = 2;
-	DLcorrect(linked, trie, wo, maxEdit);
-	//autocorrect(linked, trie, wo, maxEdit);
+	//DLcorrect(linked, trie, wo, maxEdit);
+	
 
 	linked_print(linked);
 
