@@ -175,9 +175,9 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 				*nchar = next;
 				*(nchar+1) = '\0';		
 				finder(linked, yo, maxEdit, nchar, check);
+				free(nchar);
 			}
 		}
-		free(nchar);
 		return 0;
 	}
 }
