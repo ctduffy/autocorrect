@@ -33,7 +33,6 @@ int linked_destroy(linked_t curr){
 	if(curr->next != NULL){
 		linked_destroy(curr->next);
 	}
-	free(curr->frequency);
 	free(curr->word);
 	free(curr);
 	return 0;

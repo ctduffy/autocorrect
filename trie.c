@@ -71,8 +71,6 @@ int trie_destroy(trie_t trie){ //tail recursion destroy function: first finds al
 			trie_destroy(trie->nextArr[i]);
 		}
 	}
-	free(trie->letter);
-	free(trie->frequency);
 	free(trie);
 	return 1;
 }

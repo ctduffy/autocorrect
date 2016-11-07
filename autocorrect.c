@@ -177,6 +177,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 				finder(linked, yo, maxEdit, nchar, check);
 			}
 		}
+		free()
 		return 0;
 	}
 }
@@ -210,6 +211,7 @@ int trie_starter(trie_t trie, char* filepath){
 		//printf("str: %s\n", this);
 
 		trie_insert(trie, this);
+		free(this);
 	}
 	fclose(fp);
 	return 0;
