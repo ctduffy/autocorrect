@@ -252,7 +252,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 
 	//autocomplete(linked, trie, wo, data);
 
-	int maxEdit = argv[3];
+	int maxEdit = (int)argv[3];
 	DLcorrect(linked, trie, wo, maxEdit);
 	//autocorrect(linked, trie, wo, maxEdit);
 
