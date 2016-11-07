@@ -126,6 +126,8 @@ put each word into the linked with its frequency if its edit distance is less th
 how to improve this: make it trim branches if they are impossible: check if the first x number of letters are within a certain edit distance of the first x letters, and clear the branch if it isnt
 
 
+bug with this: if I type in a
+
 */
 
 int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check){
@@ -180,7 +182,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 }
 
 
-int DLcorrect(linked_t linked, trie_t trie, char* word, int maxEdit, data_t data){
+int DLcorrect(linked_t linked, trie_t trie, char* word, int maxEdit){
 	char* thi = '\0';
 	finder(linked, trie, maxEdit, thi, word);
 	return 0;
@@ -248,7 +250,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	//autocomplete(linked, trie, wo, data);
 
 	int maxEdit = 1;
-	DLcorrect(linked, trie, wo, maxEdit, data);
+	DLcorrect(linked, trie, wo, maxEdit);
 	//autocorrect(linked, trie, wo, maxEdit);
 
 	linked_print(linked);
