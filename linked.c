@@ -46,7 +46,7 @@ int linked_contains(linked_t list, char* tocheck){ //returns 1 if linked already
 	else if(list->word == NULL && list->frequency != NULL){
 		return linked_contains(list->next, tocheck);
 	}
-	else if(strcmp(list->word, tocheck) != 0)
+	else if(strcmp(list->word, tocheck) != 0){
 		return linked_contains(list->next, tocheck);
 	}
 	else if(strcmp(list->word, tocheck) == 0){
