@@ -75,9 +75,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
 	wordmaker(word, now, trie, list);
-	printf("freeing %s!!!\n", nowword);
-	//free(nowword);
-	free(copyofnow);
+	free(copyofnow); //need to free copy of now because nowword now only conatins the last part of now
 	return 0;
 }
 
@@ -171,7 +169,7 @@ int finder(linked_t linked, trie_t trie, int maxEdit, char* wording, char* check
 			char next = get_letter(get_next_trie(trie, i));
 			trie_t yo = get_next_trie(trie, i);
 			if(next != NULL){
-				char* nchar = malloc(sizeof(char));
+				char* nchar = malloc(sizeof(char)*2);
 				*nchar = next;
 				*(nchar+1) = '\0';		
 				finder(linked, yo, maxEdit, nchar, check);

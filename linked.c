@@ -44,7 +44,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 	}
 	else if(list->next == NULL){//if this is the last thing in the list
 		int size = strlen(wordle);
-		char *str = (char *)malloc(sizeof(char)*size);
+		char *str = (char *)malloc(sizeof(char)*(size+1));
 		int i;
 		for(i=0; i<size; i++){
 			*(str+i) = wordle[i];
@@ -60,7 +60,7 @@ int linked_add(linked_t list, int freq, char* wordle){
 	else if(list->frequency > freq){// if this node has a higher frequency than freq
 		if(freq >= list->next->frequency){ //if the node after this one has a lower frequency than freq
 			int size = strlen(wordle);
-			char *str = (char *)malloc(sizeof(char)*(size));
+			char *str = (char *)malloc(sizeof(char)*(size+1));
 			int i;
 			for(i=0; i<size; i++){
 				*(str+i) = wordle[i];
