@@ -44,15 +44,14 @@ int trie_search(linked_t list, trie_t trie, char* word){
 
 	int size = strlen(word); //size of given word
 	
-	char* nowword = (char *)malloc(sizeof(char)*size); //nowword is a new word that i will use
-	
+	//char* nowword = (char *)malloc(sizeof(char)*size); //nowword is a new word that i will use
+	char nowword[size];
 	int i; 
 	for(i=0; i<size; i++){ //going through every letter in word and copying nowword to it (maybe this would have worked with strcpy??)
-		*(nowword+i) = word[i];
-		printf("%s\n", nowword);
+		nowword[i] = word[i];
+	//	*(nowword+i) = word[i];
 	}
 	nowword[size] = '\0';//set end of string to null terminator
-	printf("%s\n", nowword );
 
 	while(nowword[0]!= NULL){ //while the given word isnt zero, continue down the trie
 		if(get_letter(now) == NULL){ //if the current letter in the trie is null
