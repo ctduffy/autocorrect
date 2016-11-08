@@ -47,7 +47,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	char* nowword = (char *)malloc(sizeof(char)*size + 1); //nowword is a new word that i will use
 	char* copyofnow = nowword;
 
-	char nowword[size];
+	//char nowword[size];
 	int i; 
 	for(i=0; i<size; i++){ //going through every letter in word and copying nowword to it (maybe this would have worked with strcpy??)
 		*(nowword+i) = word[i];
