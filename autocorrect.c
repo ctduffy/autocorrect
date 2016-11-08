@@ -221,7 +221,7 @@ int main(int argc, char** argv){ //To have this function take command line argum
 	printf("file given: %s\n", argv[1]); //argv[0] is the name of the program, argv[1] is the first argument that you give it (everything is divided by spaces as well)
 	printf("word given: %s\n", argv[2]);
 	int maxEdit = strtoimax(argv[3], &argv[3], 10);
-	printf("maxEdit given: %d\n", maaax);
+	printf("maxEdit given: %d\n", maxEdit);
 	//printf("maximum edit distance: %d\n", (int) argv[3]);
 	printf("num of args given: %i\n", argc);
 	if(argc < 4){
