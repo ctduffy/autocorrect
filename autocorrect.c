@@ -65,13 +65,13 @@ int trie_search(linked_t list, trie_t trie, char* word){
 			nowword = &nowword[1];
 		}
 	}
+	free(nowword);
 	if(get_trie_frequency(now) > 0){
 		//printf("%s\n", word);
 		char* thisone = word;
 		linked_add(list, get_trie_frequency(now), thisone);
 	}
 	wordmaker(word, now, trie, list);
-	free(nowword[0]);
 	return 0;
 }
 
