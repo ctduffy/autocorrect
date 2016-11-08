@@ -44,7 +44,9 @@ int trie_search(linked_t list, trie_t trie, char* word){
 
 	int size = strlen(word); //size of given word
 	
-	char* nowword = (char *)malloc(sizeof(char)*size); //nowword is a new word that i will use
+	char* nowword = (char *)malloc(sizeof(char)*size + 1); //nowword is a new word that i will use
+	char* copyofnow = nowword;
+
 	char nowword[size];
 	int i; 
 	for(i=0; i<size; i++){ //going through every letter in word and copying nowword to it (maybe this would have worked with strcpy??)
@@ -75,6 +77,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	wordmaker(word, now, trie, list);
 	printf("freeing %s!!!\n", nowword);
 	free(nowword);
+	free(copyofnow);
 	return 0;
 }
 
