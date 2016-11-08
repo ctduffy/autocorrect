@@ -76,7 +76,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	}
 	wordmaker(word, now, trie, list);
 	printf("freeing %s!!!\n", nowword);
-	free(nowword);
+	//free(nowword);
 	free(copyofnow);
 	return 0;
 }
