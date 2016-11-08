@@ -78,6 +78,7 @@ int trie_search(linked_t list, trie_t trie, char* word){
 	else{
 		wordmaker(word, now, trie, list); 
 	}*/
+	free(nowword);
 	return 0;
 }
 
