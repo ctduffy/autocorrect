@@ -38,7 +38,26 @@ int linked_destroy(linked_t curr){
 	return 0;
 }
 
+int linked_contains(linked_t list, char* tocheck){ //returns 1 if linked already contains the word, 0 if it doesnt
+	//strcmp returns 0 when words are the same
+	if(list == NULL){
+		return 0;
+	}
+	else if(list->word == NULL && list->frequency != NULL){
+		return linked_contains(list->next, tocheck);
+	}
+	else if(strcmp(list->word, tocheck) != 0)
+		return linked_contains(list->next, tocheck);
+	}
+	else if(strcmp(list->word, tocheck) == 0)
+		return 1;
+	}
+}
+
 int linked_add(linked_t list, int freq, char* wordle){
+	if(linked_contains(list, wordle) == 1){
+		return 0;
+	}
 	if(list == NULL){
 		return -1;
 	}
