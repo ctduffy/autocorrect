@@ -25,4 +25,4 @@ Some constraints/extra tidbits:
 -if you want to use this with your own file of words, it cannot (at the moment) contain any thing other than lowercase letters and newline characters.:) this is a place for improvement.
 
 * Owned by: Clara Duffy
-* contact Clara Duffy at cduffy@students.stab.org with any questions, comments, or suggestions
+* contact Clara Duffy at ctduffy@college.harvard.edu with any questions, comments, or suggestions
